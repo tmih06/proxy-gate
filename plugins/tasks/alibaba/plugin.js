@@ -1208,8 +1208,8 @@ export function buildContentRequest(ctx) {
     const images = imageContent(artifactData(ctx)).filter(function (part) {
       return part.image;
     });
-    const index = images.findIndex(function (_, index) {
-      return ctx.artifactKey === "image-" + (index + 1);
+    const index = images.findIndex(function (_, imageIndex) {
+      return ctx.artifactKey === "image-" + (imageIndex + 1);
     });
     url = index >= 0 ? images[index].image : "";
   }
@@ -1401,7 +1401,7 @@ export const protocols = {
           try {
             req[key] = JSON.parse(req[key]);
           } catch (e) {
-            throw new Error(key + " must be a JSON object string");
+            throw new Error(key + " must be a JSON object string", { cause: e });
           }
         }
         for (const file of ctx.body.files || []) {
@@ -1492,7 +1492,7 @@ export const protocols = {
           try {
             parsed = JSON.parse(req.metadata);
           } catch (e) {
-            throw new Error("metadata must be a JSON object string");
+            throw new Error("metadata must be a JSON object string", { cause: e });
           }
           if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("metadata must be a JSON object string");
           req.metadata = parsed;

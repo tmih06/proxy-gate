@@ -1092,7 +1092,7 @@ export const protocols = {
           try {
             req[key] = JSON.parse(req[key]);
           } catch (e) {
-            throw new Error(key + " must be a JSON string");
+            throw new Error(key + " must be a JSON string", { cause: e });
           }
         }
         for (const file of ctx.body.files || []) {
@@ -1187,7 +1187,7 @@ protocols.openai_video = {
       try {
         parsed = JSON.parse(req.metadata);
       } catch (e) {
-        throw new Error("metadata must be a JSON object string");
+        throw new Error("metadata must be a JSON object string", { cause: e });
       }
       if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("metadata must be a JSON object string");
       req.metadata = parsed;
