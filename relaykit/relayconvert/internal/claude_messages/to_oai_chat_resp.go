@@ -300,6 +300,8 @@ func UsageFromClaudeAPIUsage(usage *dto.ClaudeUsage) *dto.Usage {
 		UsageSemantic:    "anthropic",
 		UsageSource:      "anthropic",
 		BillingUsage:     dto.CloneBillingUsage(usage.BillingUsage),
+		Cost:             usage.Cost,
+		OpenCode:         usage.OpenCode,
 	}
 	if semanticUsage.BillingUsage == nil {
 		semanticUsage.BillingUsage = dto.NewClaudeMessagesBillingUsage(usage)
@@ -516,6 +518,12 @@ func FormatClaudeResponseInfo(claudeResponse *dto.ClaudeResponse, oaiResponse *d
 			claudeInfo.Usage.ClaudeCacheCreation5mTokens = messageUsage.GetCacheCreation5mTokens()
 			claudeInfo.Usage.ClaudeCacheCreation1hTokens = messageUsage.GetCacheCreation1hTokens()
 			claudeInfo.Usage.CompletionTokens = messageUsage.OutputTokens
+			if messageUsage.Cost != nil {
+				claudeInfo.Usage.Cost = messageUsage.Cost
+			}
+			if messageUsage.OpenCode != nil {
+				claudeInfo.Usage.OpenCode = messageUsage.OpenCode
+			}
 			updateClaudeStreamBillingUsage(messageUsage, claudeInfo, false)
 		}
 	} else if claudeResponse.Type == "content_block_delta" {
@@ -550,6 +558,12 @@ func FormatClaudeResponseInfo(claudeResponse *dto.ClaudeResponse, oaiResponse *d
 			}
 			if claudeResponse.Usage.OutputTokens > 0 {
 				claudeInfo.Usage.CompletionTokens = claudeResponse.Usage.OutputTokens
+			}
+			if claudeResponse.Usage.Cost != nil {
+				claudeInfo.Usage.Cost = claudeResponse.Usage.Cost
+			}
+			if claudeResponse.Usage.OpenCode != nil {
+				claudeInfo.Usage.OpenCode = claudeResponse.Usage.OpenCode
 			}
 			claudeInfo.Usage.TotalTokens = claudeInfo.Usage.PromptTokens + claudeInfo.Usage.CompletionTokens
 			updateClaudeStreamBillingUsage(claudeResponse.Usage, claudeInfo, true)

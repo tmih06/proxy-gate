@@ -7358,6 +7358,12 @@
     "Zhipu": "智谱",
     "Zhipu GLM": "智谱GLM",
     "Zhipu V4": "智谱 V4",
-    "Zoom": "缩放"
+    "Zoom": "缩放",
+    "OpenCode": "OpenCode",
+    "Allowance": "额度",
+    "Connect to OpenCode Go and OpenCode inference services across OpenAI, Anthropic, and Gemini APIs": "连接 OpenCode Go 与 OpenCode 推理服务，支持 OpenAI、Anthropic 和 Gemini API",
+    "OpenCode inference base URL, without /openai, /anthropic, or /google": "OpenCode 推理基础 URL，不要包含 /openai、/anthropic 或 /google",
+    "Format: oc_sk_...": "格式：oc_sk_...",
+    "Models fetched from upstream /v1/models": "从上游 /v1/models 获取模型"
   }
 }

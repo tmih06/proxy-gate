@@ -85,6 +85,9 @@ func MergeUsageNonZero(current *Usage, incoming *Usage) *Usage {
 	if incoming.Cost != nil && !reflect.ValueOf(incoming.Cost).IsZero() {
 		current.Cost = incoming.Cost
 	}
+	if incoming.OpenCode != nil {
+		current.OpenCode = incoming.OpenCode
+	}
 	if total := current.PromptTokens + current.CompletionTokens; total > current.TotalTokens {
 		current.TotalTokens = total
 	}
@@ -255,6 +258,12 @@ func MergeGeminiUsageMetadataNonZero(current *GeminiUsageMetadata, incoming *Gem
 	merged.CandidatesTokensDetails = mergeGeminiTokenDetails(merged.CandidatesTokensDetails, incoming.CandidatesTokensDetails)
 	if incoming.BillingUsage != nil {
 		merged.BillingUsage = MergeBillingUsageNonZero(merged.BillingUsage, incoming.BillingUsage)
+	}
+	if incoming.Cost != nil {
+		merged.Cost = incoming.Cost
+	}
+	if incoming.OpenCode != nil {
+		merged.OpenCode = incoming.OpenCode
 	}
 	if total := merged.PromptTokenCount + merged.ToolUsePromptTokenCount + merged.CandidatesTokenCount + merged.ThoughtsTokenCount; total > merged.TotalTokenCount {
 		merged.TotalTokenCount = total

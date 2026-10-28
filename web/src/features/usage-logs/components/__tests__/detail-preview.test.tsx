@@ -22,7 +22,14 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { act, fireEvent, render, screen, within } from '@testing-library/react'
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import { createInstance } from 'i18next'
 import { I18nextProvider } from 'react-i18next'
 import { afterAll, afterEach, beforeEach, expect, test, vi } from 'vitest'
@@ -326,6 +333,40 @@ test('quota saturation remains first and only billing adds to the counter', () =
   })
   expect(preview.textContent).toBe('Quota clamped+1')
 })
+
+test.each([true, false])(
+  'OpenCode accounting in the opened dialog respects admin=%s',
+  async (isAdmin) => {
+    const preview = renderPreview(
+      {
+        model_price: 0.25,
+        admin_info: {
+          opencode: {
+            billing_source: 'go',
+            allowance: 0.5,
+            list_cost: 0.6,
+          },
+          opencode_cost: 0.5,
+        },
+      },
+      isAdmin
+    )
+    fireEvent.click(preview)
+    const dialog = within(await screen.findByRole('dialog'))
+    if (isAdmin) {
+      expect(dialog.getByText('OpenCode')).toBeVisible()
+      expect(dialog.getByText('go')).toBeVisible()
+      expect(dialog.getByText('Allowance')).toBeVisible()
+    } else {
+      expect(dialog.queryByText('OpenCode')).not.toBeInTheDocument()
+      expect(dialog.queryByText('Allowance')).not.toBeInTheDocument()
+    }
+    fireEvent.keyDown(document, { key: 'Escape' })
+    await waitFor(() =>
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    )
+  }
+)
 
 test.each([true, false])(
   'plugin information in the opened dialog respects admin=%s',

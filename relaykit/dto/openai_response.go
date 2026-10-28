@@ -247,6 +247,30 @@ type Usage struct {
 
 	// OpenRouter Params
 	Cost any `json:"cost,omitempty"`
+
+	// OpenCode Params. Cost is the top-level usage.cost; OpenCode carries the
+	// remaining Go-plan accounting inside usage.opencode.
+	OpenCode *OpenCodeUsage `json:"opencode,omitempty"`
+}
+
+// OpenCodeUsage is the provider-specific accounting OpenCode adds to the
+// standard usage object. Allowance is the amount this request counted toward
+// the Go plan's monthly limit.
+type OpenCodeUsage struct {
+	BillingSource string              `json:"billing_source,omitempty"`
+	ListCost      float64             `json:"list_cost,omitempty"`
+	Allowance     float64             `json:"allowance,omitempty"`
+	Estimated     bool                `json:"estimated,omitempty"`
+	Tokens        *OpenCodeTokenUsage `json:"tokens,omitempty"`
+}
+
+type OpenCodeTokenUsage struct {
+	Input        int `json:"input,omitempty"`
+	Output       int `json:"output,omitempty"`
+	Reasoning    int `json:"reasoning,omitempty"`
+	CacheRead    int `json:"cache_read,omitempty"`
+	CacheWrite5m int `json:"cache_write_5m,omitempty"`
+	CacheWrite1h int `json:"cache_write_1h,omitempty"`
 }
 
 type OpenAIVideoResponse struct {

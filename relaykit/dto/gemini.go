@@ -590,6 +590,8 @@ type GeminiUsageMetadata struct {
 	ToolUsePromptTokensDetails []GeminiPromptTokensDetails `json:"toolUsePromptTokensDetails"`
 	CandidatesTokensDetails    []GeminiPromptTokensDetails `json:"candidatesTokensDetails"`
 	BillingUsage               *BillingUsage               `json:"billing_usage,omitempty"`
+	Cost                       any                         `json:"cost,omitempty"`
+	OpenCode                   *OpenCodeUsage              `json:"opencode,omitempty"`
 }
 
 type GeminiPromptTokensDetails struct {

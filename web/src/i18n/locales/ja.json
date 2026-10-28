@@ -7358,6 +7358,12 @@
     "Zhipu": "Zhipu",
     "Zhipu GLM": "Zhipu GLM",
     "Zhipu V4": "Zhipu V 4",
-    "Zoom": "ズーム"
+    "Zoom": "ズーム",
+    "OpenCode": "OpenCode",
+    "Allowance": "Allowance",
+    "Connect to OpenCode Go and OpenCode inference services across OpenAI, Anthropic, and Gemini APIs": "Connect to OpenCode Go and OpenCode inference services across OpenAI, Anthropic, and Gemini APIs",
+    "OpenCode inference base URL, without /openai, /anthropic, or /google": "OpenCode inference base URL, without /openai, /anthropic, or /google",
+    "Format: oc_sk_...": "Format: oc_sk_...",
+    "Models fetched from upstream /v1/models": "Models fetched from upstream /v1/models"
   }
 }

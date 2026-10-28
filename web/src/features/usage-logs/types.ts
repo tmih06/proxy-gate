@@ -147,6 +147,22 @@ export interface LogOtherData {
     // Reject / intercept reason (admin only)
     reject_reason?: string
     task_plugin?: TaskPluginInfo
+    // OpenCode Go accounting (admin only)
+    opencode?: {
+      billing_source?: string
+      list_cost?: number
+      allowance?: number
+      estimated?: boolean
+      tokens?: {
+        input?: number
+        output?: number
+        reasoning?: number
+        cache_read?: number
+        cache_write_5m?: number
+        cache_write_1h?: number
+      }
+    }
+    opencode_cost?: number
   }
   root_info?: {
     task_plugin?: TaskPluginRuntimeInfo

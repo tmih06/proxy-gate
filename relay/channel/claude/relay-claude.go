@@ -382,6 +382,8 @@ func HandleClaudeResponseData(c *gin.Context, info *relaycommon.RelayInfo, claud
 		claudeInfo.Usage.PromptTokensDetails.CachedCreationTokens = claudeResponse.Usage.CacheCreationInputTokens
 		claudeInfo.Usage.ClaudeCacheCreation5mTokens = claudeResponse.Usage.GetCacheCreation5mTokens()
 		claudeInfo.Usage.ClaudeCacheCreation1hTokens = claudeResponse.Usage.GetCacheCreation1hTokens()
+		claudeInfo.Usage.Cost = claudeResponse.Usage.Cost
+		claudeInfo.Usage.OpenCode = claudeResponse.Usage.OpenCode
 	}
 	var responseData []byte
 	switch info.RelayFormat {

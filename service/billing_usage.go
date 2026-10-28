@@ -60,6 +60,26 @@ func appendUsageBillingPathForLog(other *model.LogOther, isLocalCountTokens bool
 	other.SetAdmin("usage_billing_path", usageBillingPathForLog(isLocalCountTokens, usage))
 }
 
+// appendOpenCodeUsageForLog exposes OpenCode's Go-plan accounting to admins.
+// The fields are informational: billing continues to use New API's own model
+// pricing and usage quantities.
+func appendOpenCodeUsageForLog(other *model.LogOther, usage *dto.Usage) {
+	if other == nil || usage == nil || usage.OpenCode == nil {
+		return
+	}
+	other.SetAdmin("opencode", usage.OpenCode)
+	switch cost := usage.Cost.(type) {
+	case float64:
+		other.SetAdmin("opencode_cost", cost)
+	case float32:
+		other.SetAdmin("opencode_cost", float64(cost))
+	case int:
+		other.SetAdmin("opencode_cost", cost)
+	case int64:
+		other.SetAdmin("opencode_cost", cost)
+	}
+}
+
 func usageFromBillingUsage(usage *dto.Usage) (*dto.Usage, bool) {
 	if usage == nil || usage.BillingUsage == nil {
 		return nil, false

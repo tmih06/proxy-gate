@@ -18,6 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import {
   CHANNEL_TYPES,
+  CHANNEL_TYPE_OPENCODE,
   CHANNEL_TYPE_VLLM,
   CHANNEL_TYPE_SGLANG,
 } from '../constants'
@@ -178,6 +179,17 @@ export const CHANNEL_TYPE_CONFIGS: Record<number, ChannelTypeConfig> = {
       baseUrl: 'Base URL is required for this channel type',
       key: 'Enter API key for this channel',
       models: 'Models',
+    },
+  },
+  [CHANNEL_TYPE_OPENCODE]: {
+    id: CHANNEL_TYPE_OPENCODE,
+    name: CHANNEL_TYPES[CHANNEL_TYPE_OPENCODE],
+    icon: 'OpenCode',
+    hints: {
+      baseUrl:
+        'OpenCode inference base URL, without /openai, /anthropic, or /google',
+      key: 'Format: oc_sk_...',
+      models: 'Models fetched from upstream /v1/models',
     },
   },
 }

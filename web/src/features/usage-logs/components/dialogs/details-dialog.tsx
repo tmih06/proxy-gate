@@ -883,6 +883,41 @@ export function DetailsDialog(props: DetailsDialogProps) {
           </DetailSection>
         )}
 
+        {/* OpenCode Go accounting (admin only) */}
+        {props.isAdmin && adminInfo?.opencode && (
+          <DetailSection
+            icon={<Cloud className='size-4' aria-hidden='true' />}
+            label={t('OpenCode')}
+          >
+            {adminInfo.opencode.billing_source && (
+              <DetailRow
+                label={t('Source')}
+                value={adminInfo.opencode.billing_source}
+              />
+            )}
+            {adminInfo.opencode.allowance != null &&
+              adminInfo.opencode.allowance > 0 && (
+                <DetailRow
+                  label={t('Allowance')}
+                  value={formatBillingCurrencyFromUSD(
+                    adminInfo.opencode.allowance
+                  )}
+                  mono
+                />
+              )}
+            {adminInfo.opencode.list_cost != null &&
+              adminInfo.opencode.list_cost > 0 && (
+                <DetailRow
+                  label={t('Cost')}
+                  value={formatBillingCurrencyFromUSD(
+                    adminInfo.opencode.list_cost
+                  )}
+                  mono
+                />
+              )}
+          </DetailSection>
+        )}
+
         {/* Reject reason (admin only) */}
         {props.isAdmin && adminInfo?.reject_reason && (
           <DetailSection

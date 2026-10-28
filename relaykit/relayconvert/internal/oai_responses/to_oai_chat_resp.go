@@ -204,6 +204,7 @@ func usageFromResponsesUsage(src *dto.Usage, createBillingSnapshot bool) *dto.Us
 		usage.BillingUsage = dto.NewOpenAIResponsesBillingUsage(src)
 	}
 	usage.Cost = src.Cost
+	usage.OpenCode = src.OpenCode
 	if src.InputTokens != 0 {
 		usage.PromptTokens = src.InputTokens
 		usage.InputTokens = src.InputTokens
