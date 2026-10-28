@@ -371,11 +371,8 @@ export function CreateDeploymentDrawer({
   const priceSummary = useMemo<string>(() => {
     const est = priceData?.data
     if (!est || typeof est !== 'object') return ''
-    const total =
-      (est)?.total_cost ??
-      (est)?.total ??
-      ''
-    const currency = (est)?.currency ?? ''
+    const total = est?.total_cost ?? est?.total ?? ''
+    const currency = est?.currency ?? ''
     if (total === '' && currency === '') return ''
     return `${total} ${currency}`.trim()
   }, [priceData])
@@ -499,7 +496,7 @@ export function CreateDeploymentDrawer({
                     <FormControl>
                       <MultiSelect
                         options={locationOptions}
-                        selected={(field.value || [])}
+                        selected={field.value || []}
                         onChange={(vals) => {
                           if (isLoadingReplicas || !hardwareId) return
                           field.onChange(vals)

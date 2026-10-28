@@ -56,7 +56,7 @@ export function CacheTooltip({
       <Tooltip>
         <TooltipTrigger
           render={<Zap className={`size-3 flex-shrink-0 ${color}`} />}
-         />
+        />
         <TooltipContent side='top'>
           <p className='text-xs'>
             {label}: {formatTokens(tokens)}
@@ -213,10 +213,7 @@ export function createFailReasonColumn<T>(config: {
     ),
     cell: function FailReasonCell({ row }) {
       const { t } = useTranslation()
-      const failReason = translateServerText(
-        t,
-        row.getValue(accessorKey)
-      )
+      const failReason = translateServerText(t, row.getValue(accessorKey))
       const [dialogOpen, setDialogOpen] = useState(false)
 
       if (!failReason) {

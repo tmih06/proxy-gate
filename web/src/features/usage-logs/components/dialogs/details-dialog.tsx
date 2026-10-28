@@ -620,7 +620,7 @@ export function DetailsDialog(props: DetailsDialogProps) {
     isManage &&
     props.isAdmin &&
     Array.isArray(other?.op?.params?.changed_fields)
-      ? (other.op.params.changed_fields)
+      ? other.op.params.changed_fields
       : []
   const changedFieldsText = changedFieldTokens
     .map((field) => t(CHANNEL_FIELD_LABELS[field] ?? field))

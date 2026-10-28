@@ -119,10 +119,7 @@ export function SettingsPage<
   const sectionMeta = getSectionMeta(activeSection)
 
   const settings = useMemo(() => {
-    const baseSettings = getOptionValue(
-      data?.data,
-      defaultSettings
-    )
+    const baseSettings = getOptionValue(data?.data, defaultSettings)
     return resolveSettings
       ? resolveSettings(baseSettings, data?.data)
       : baseSettings

@@ -50,9 +50,7 @@ export function useTopNavLinks(): TopNavLink[] {
 
   // Parse HeaderNavModules
   const modules = useMemo(() => {
-    return parseHeaderNavModulesFromStatus(
-      status
-    )
+    return parseHeaderNavModulesFromStatus(status)
   }, [status])
 
   // Documentation link (may be external)

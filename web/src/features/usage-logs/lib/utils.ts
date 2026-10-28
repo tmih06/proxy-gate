@@ -32,11 +32,7 @@ import {
   DISPLAYABLE_LOG_TYPES,
   TIMING_LOG_TYPES,
 } from '../constants'
-import type {
-  GetLogsParams,
-  GetLogsResponse,
-  FetchLogsConfig,
-} from '../types'
+import type { GetLogsParams, GetLogsResponse, FetchLogsConfig } from '../types'
 
 export { buildQueryParams } from './query-params'
 

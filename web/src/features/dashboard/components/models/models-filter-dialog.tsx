@@ -125,9 +125,7 @@ export function ModelsFilter(props: ModelsFilterProps) {
 
   const handleApply = () => {
     props.onFilterChange(
-      cleanFilters(
-        filters as unknown as Record<string, unknown>
-      )
+      cleanFilters(filters as unknown as Record<string, unknown>)
     )
     setOpen(false)
   }
@@ -150,8 +148,9 @@ export function ModelsFilter(props: ModelsFilterProps) {
     value: Date | string | undefined
   ) => {
     setFilters((prev) => ({ ...prev, [field]: value }))
-    if (field === 'start_timestamp' || field === 'end_timestamp')
-      {setSelectedRange(null)}
+    if (field === 'start_timestamp' || field === 'end_timestamp') {
+      setSelectedRange(null)
+    }
   }
 
   const handleQuickRange = (days: number) => {
@@ -258,9 +257,9 @@ export function ModelsFilter(props: ModelsFilterProps) {
             <Label htmlFor='time_granularity'>{t('Time Granularity')}</Label>
             <Select
               items={TIME_GRANULARITY_OPTIONS.map((option) => ({
-                  value: option.value,
-                  label: t(option.label),
-                }))}
+                value: option.value,
+                label: t(option.label),
+              }))}
               value={filters.time_granularity}
               onValueChange={(value) =>
                 handleChange('time_granularity', value as TimeGranularity)

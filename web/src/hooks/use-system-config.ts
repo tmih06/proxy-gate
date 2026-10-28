@@ -36,13 +36,16 @@ function preloadImage(
   onError: () => void
 ): () => void {
   const img = new Image()
-  img.onload = onLoad
-  img.onerror = onError
+  const handleLoad = () => onLoad()
+  const handleError = () => onError()
+  img.addEventListener('load', handleLoad)
+  img.addEventListener('error', handleError)
   img.src = src
 
   return () => {
-    img.onload = null
-    img.onerror = null
+    img.removeEventListener('load', handleLoad)
+    img.removeEventListener('error', handleError)
+    img.src = ''
   }
 }
 

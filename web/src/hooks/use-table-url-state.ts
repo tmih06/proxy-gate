@@ -31,7 +31,10 @@ const PAGE_SIZE_STORAGE_KEY = 'page-size'
 
 function getStoredPageSize(): number | undefined {
   try {
-    const n = Number.parseInt(localStorage.getItem(PAGE_SIZE_STORAGE_KEY) ?? '', 10)
+    const n = Number.parseInt(
+      localStorage.getItem(PAGE_SIZE_STORAGE_KEY) ?? '',
+      10
+    )
     return n > 0 ? n : undefined // n > 0 also rejects NaN
   } catch {
     return undefined
@@ -115,12 +118,12 @@ export function useTableUrlState(
     columnFilters: columnFiltersCfg = [],
   } = params
 
-  const pageKey = paginationCfg?.pageKey ?? ('page')
-  const pageSizeKey = paginationCfg?.pageSizeKey ?? ('pageSize')
+  const pageKey = paginationCfg?.pageKey ?? 'page'
+  const pageSizeKey = paginationCfg?.pageSizeKey ?? 'pageSize'
   const defaultPage = paginationCfg?.defaultPage ?? 1
   const defaultPageSize = paginationCfg?.defaultPageSize ?? 20
 
-  const globalFilterKey = globalFilterCfg?.key ?? ('filter')
+  const globalFilterKey = globalFilterCfg?.key ?? 'filter'
   const globalFilterEnabled = globalFilterCfg?.enabled ?? true
   const trimGlobal = globalFilterCfg?.trim ?? true
 
@@ -128,7 +131,7 @@ export function useTableUrlState(
   const initialColumnFilters: ColumnFiltersState = useMemo(() => {
     const collected: ColumnFiltersState = []
     for (const cfg of columnFiltersCfg) {
-      const raw = (search)[cfg.searchKey]
+      const raw = search[cfg.searchKey]
       const deserialize = cfg.deserialize ?? ((v: unknown) => v)
       if (cfg.type === 'string') {
         const value = (deserialize(raw) as string) ?? ''
@@ -156,8 +159,8 @@ export function useTableUrlState(
   }, [search])
 
   const pagination: PaginationState = useMemo(() => {
-    const rawPage = (search)[pageKey]
-    const rawPageSize = (search)[pageSizeKey]
+    const rawPage = search[pageKey]
+    const rawPageSize = search[pageSizeKey]
     const pageNum = typeof rawPage === 'number' ? rawPage : defaultPage
     const pageSizeNum =
       typeof rawPageSize === 'number'
@@ -173,7 +176,7 @@ export function useTableUrlState(
     if (nextPageSize !== pagination.pageSize) setStoredPageSize(nextPageSize)
     navigate({
       search: (prev) => ({
-        ...(prev),
+        ...prev,
         [pageKey]: nextPage <= defaultPage ? undefined : nextPage,
         [pageSizeKey]: nextPageSize,
       }),
@@ -182,7 +185,7 @@ export function useTableUrlState(
 
   const [globalFilter, setGlobalFilter] = useState<string | undefined>(() => {
     if (!globalFilterEnabled) return undefined
-    const raw = (search)[globalFilterKey]
+    const raw = search[globalFilterKey]
     return typeof raw === 'string' ? raw : ''
   })
 
@@ -197,7 +200,7 @@ export function useTableUrlState(
           setGlobalFilter(value)
           navigate({
             search: (prev) => ({
-              ...(prev),
+              ...prev,
               [pageKey]: undefined,
               [globalFilterKey]: value ? value : undefined,
             }),
@@ -216,8 +219,7 @@ export function useTableUrlState(
       const found = next.find((f) => f.id === cfg.columnId)
       const serialize = cfg.serialize ?? ((v: unknown) => v)
       if (cfg.type === 'string') {
-        const value =
-          typeof found?.value === 'string' ? (found.value) : ''
+        const value = typeof found?.value === 'string' ? found.value : ''
         patch[cfg.searchKey] =
           value.trim() !== '' ? serialize(value) : undefined
       } else {
@@ -230,7 +232,7 @@ export function useTableUrlState(
 
     navigate({
       search: (prev) => ({
-        ...(prev),
+        ...prev,
         [pageKey]: undefined,
         ...patch,
       }),
@@ -241,13 +243,13 @@ export function useTableUrlState(
     pageCount: number,
     opts: { resetTo?: 'first' | 'last' } = { resetTo: 'first' }
   ) => {
-    const currentPage = (search)[pageKey]
+    const currentPage = search[pageKey]
     const pageNum = typeof currentPage === 'number' ? currentPage : defaultPage
     if (pageCount > 0 && pageNum > pageCount) {
       navigate({
         replace: true,
         search: (prev) => ({
-          ...(prev),
+          ...prev,
           [pageKey]: opts.resetTo === 'last' ? pageCount : undefined,
         }),
       })

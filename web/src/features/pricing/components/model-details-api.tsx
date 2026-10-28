@@ -430,8 +430,9 @@ function buildSample(
 ): string {
   if (endpointType === 'anthropic') return buildAnthropicSample(lang, ctx)
   if (endpointType === 'gemini') return buildGeminiSample(lang, ctx)
-  if (endpointType === 'embeddings' || endpointType === 'jina-rerank')
-    {return buildEmbeddingSample(lang, ctx)}
+  if (endpointType === 'embeddings' || endpointType === 'jina-rerank') {
+    return buildEmbeddingSample(lang, ctx)
+  }
   if (endpointType === 'image-generation') return buildImageSample(lang, ctx)
   return buildChatSample(lang, ctx)
 }
@@ -449,10 +450,10 @@ function CodeSamplesSection(props: {
 
   const baseUrl = useMemo(() => {
     const candidate =
-      (status)?.server_address ??
-      (status)?.serverAddress ??
-      (status?.data)?.server_address ??
-      (status?.data)?.serverAddress
+      status?.server_address ??
+      status?.serverAddress ??
+      status?.data?.server_address ??
+      status?.data?.serverAddress
     if (candidate && typeof candidate === 'string') {
       return candidate.replace(/\/$/, '')
     }

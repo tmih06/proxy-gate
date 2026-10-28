@@ -258,15 +258,11 @@ export function UsageLogsTable({ logCategory }: UsageLogsTableProps) {
         )
       }
       renderRow={(row) => {
-        const logType = (row.original).type as
-          | number
-          | undefined
+        const logType = row.original.type as number | undefined
         let tintClass =
           isCommon && logType != null ? (logTypeRowTint[logType] ?? '') : ''
         if (isCommon && isAdmin) {
-          const other = parseLogOther(
-            ((row.original).other as string) ?? ''
-          )
+          const other = parseLogOther((row.original.other as string) ?? '')
           if (other?.admin_info?.quota_saturation) {
             tintClass = quotaSaturationRowTint
           }

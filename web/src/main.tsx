@@ -73,9 +73,7 @@ if (!rootElement) {
     if (typeof window === 'undefined' || typeof document === 'undefined') return
     const apply = (name: string) => {
       document.title = name
-      const metaTitle = document.querySelector(
-        'meta[name="title"]'
-      )
+      const metaTitle = document.querySelector('meta[name="title"]')
       if (metaTitle) metaTitle.setAttribute('content', name)
     }
     // Cache-first

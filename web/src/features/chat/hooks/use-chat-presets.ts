@@ -44,7 +44,7 @@ function extractServerAddress(status: SystemStatus | null) {
     (status?.server_address as string | undefined) ??
     (status?.serverAddress as string | undefined) ??
     status?.data?.server_address ??
-    (status?.data)?.serverAddress
+    status?.data?.serverAddress
 
   if (fromStatus && typeof fromStatus === 'string') {
     return fromStatus

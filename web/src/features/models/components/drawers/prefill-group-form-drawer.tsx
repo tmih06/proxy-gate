@@ -293,8 +293,7 @@ export function PrefillGroupFormDrawer({
                       }))}
                       value={field.value}
                       onValueChange={(value) =>
-                        value !== null &&
-                        field.onChange(value)
+                        value !== null && field.onChange(value)
                       }
                     >
                       <FormControl>

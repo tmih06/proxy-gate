@@ -133,7 +133,7 @@ async function collectTargetFiles(rootDir) {
     }
   }
 
-  return files.sort()
+  return files.sort((a, b) => a.localeCompare(b))
 }
 
 function splitShebang(text) {

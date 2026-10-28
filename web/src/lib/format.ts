@@ -34,9 +34,7 @@ export function formatNumber(
   locales?: Intl.LocalesArgument
 ): string {
   if (value == null || Number.isNaN(value)) return '-'
-  return Intl.NumberFormat(locales, { maximumFractionDigits: 2 }).format(
-    value
-  )
+  return Intl.NumberFormat(locales, { maximumFractionDigits: 2 }).format(value)
 }
 
 export function formatCompactNumber(
@@ -55,11 +53,11 @@ export function formatPercent(value: number | null | undefined): string {
   return Intl.NumberFormat(undefined, {
     style: 'percent',
     maximumFractionDigits: 2,
-  }).format((value) / 100)
+  }).format(value / 100)
 }
 
 export function formatCurrencyUSD(value: number | null | undefined): string {
-  return formatCurrencyFromUSD(value == null ? null : (value))
+  return formatCurrencyFromUSD(value == null ? null : value)
 }
 
 // ============================================================================

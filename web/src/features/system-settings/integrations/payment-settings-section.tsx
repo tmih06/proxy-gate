@@ -368,14 +368,10 @@ export function PaymentSettingsSection({
       key: keyof PaymentFormValues,
       value: PaymentFormValues[keyof PaymentFormValues]
     ) => {
-      form.setValue(
-        key,
-        value,
-        {
-          shouldDirty: true,
-          shouldValidate: true,
-        }
-      )
+      form.setValue(key, value, {
+        shouldDirty: true,
+        shouldValidate: true,
+      })
     },
     [form]
   )
@@ -385,10 +381,7 @@ export function PaymentSettingsSection({
       key: K,
       value: WaffoFormFieldValues[K]
     ) => {
-      setPaymentValue(
-        key,
-        value
-      )
+      setPaymentValue(key, value)
     },
     [setPaymentValue]
   )
@@ -398,10 +391,7 @@ export function PaymentSettingsSection({
       key: K,
       value: WaffoPancakeSettingsValues[K]
     ) => {
-      setPaymentValue(
-        key,
-        value
-      )
+      setPaymentValue(key, value)
     },
     [setPaymentValue]
   )

@@ -23,7 +23,7 @@ import { readCachedStatus, statusQueryOptions } from '@/lib/status-query'
 
 /** Seed value from the persisted snapshot, so the first render is not empty. */
 function getInitialStatus(): SystemStatus | undefined {
-  return (readCachedStatus()) ?? undefined
+  return readCachedStatus() ?? undefined
 }
 
 /**

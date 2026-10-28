@@ -128,6 +128,7 @@ function DataTableFacetedFilterInner<TData, TValue>({
             <CommandGroup>
               {options.map((option) => {
                 const isSelected = selectedValues.has(option.value)
+                const facetCount = facets?.get(option.value)
                 return (
                   <CommandItem
                     key={option.value}
@@ -147,7 +148,8 @@ function DataTableFacetedFilterInner<TData, TValue>({
                       <span className='text-muted-foreground flex size-4 items-center justify-center'>
                         {option.iconNode}
                       </span>
-                    ) : option.icon ? (
+                    ) : null}
+                    {!option.iconNode && option.icon ? (
                       <option.icon className='text-muted-foreground size-4' />
                     ) : null}
                     <span
@@ -160,9 +162,11 @@ function DataTableFacetedFilterInner<TData, TValue>({
                       <span className='text-muted-foreground ms-auto flex h-4 min-w-4 items-center justify-center font-mono text-xs'>
                         {option.count}
                       </span>
-                    ) : facets?.get(option.value) ? (
+                    ) : null}
+                    {typeof option.count !== 'number' &&
+                    facetCount !== undefined ? (
                       <span className='ms-auto flex h-4 w-4 items-center justify-center font-mono text-xs'>
-                        {facets.get(option.value)}
+                        {facetCount}
                       </span>
                     ) : null}
                   </CommandItem>

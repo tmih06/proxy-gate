@@ -115,9 +115,7 @@ export function processChartData(
           ...modelItems.slice(MAX_TOOLTIP_MODELS),
           ...otherItems,
         ].reduce((sum, item) => {
-          const raw = item.datum
-            ? Number((item.datum)?.rawQuota) || 0
-            : 0
+          const raw = item.datum ? Number(item.datum?.rawQuota) || 0 : 0
           return sum + raw
         }, 0)
         array = [

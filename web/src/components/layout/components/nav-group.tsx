@@ -79,30 +79,18 @@ export function NavGroup({ title, items }: NavGroupProps) {
 
           // If no sub-items, render regular link
           if (!item.items) {
-            return (
-              <SidebarMenuLink key={key} item={item} href={href} />
-            )
+            return <SidebarMenuLink key={key} item={item} href={href} />
           }
 
           // In collapsed state on non-mobile, render dropdown menu
           if (state === 'collapsed' && !isMobile) {
             return (
-              <SidebarMenuCollapsedDropdown
-                key={key}
-                item={item}
-                href={href}
-              />
+              <SidebarMenuCollapsedDropdown key={key} item={item} href={href} />
             )
           }
 
           // Render collapsible menu
-          return (
-            <SidebarMenuCollapsible
-              key={key}
-              item={item}
-              href={href}
-            />
-          )
+          return <SidebarMenuCollapsible key={key} item={item} href={href} />
         })}
       </SidebarMenu>
     </SidebarGroup>

@@ -1656,8 +1656,10 @@ export function ParamOverrideEditorDialog(
         return
       }
 
-      const operationsPayload = ((payload)
-        .operations || []) as Record<string, unknown>[]
+      const operationsPayload = (payload.operations || []) as Record<
+        string,
+        unknown
+      >[]
 
       if (mode === 'append') {
         const appended = operationsPayload.map(normalizeOperation)

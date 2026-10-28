@@ -449,9 +449,7 @@ export const TaskUsagePricingEditor = memo(function TaskUsagePricingEditor(
               { value: 'raw', label: t('Expression editor') },
             ]}
             value={editorMode}
-            onValueChange={(value) =>
-              value !== null && handleModeChange(value)
-            }
+            onValueChange={(value) => value !== null && handleModeChange(value)}
           >
             <SelectTrigger
               aria-label={t('Editor mode')}

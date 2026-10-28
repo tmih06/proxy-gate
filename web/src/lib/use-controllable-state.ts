@@ -74,9 +74,7 @@ export function useControllableState<T>({
           handleChangeRef.current?.(nextValue as T)
         }
       } else {
-        setUncontrolledProp(
-          next
-        )
+        setUncontrolledProp(next)
       }
     },
     [isControlled, prop]

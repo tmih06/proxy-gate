@@ -97,7 +97,7 @@ function normalizeStringList(text: string): string[] {
 }
 
 function normalizeKeySource(src: Partial<KeySource>): KeySource {
-  const type = (src?.type || 'gjson')
+  const type = src?.type || 'gjson'
   if (type === 'gjson') return { ...src, type, key: '', path: src?.path || '' }
   return { ...src, type, key: src?.key || '', path: '' }
 }

@@ -66,9 +66,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       header: t('ID'),
       meta: { mobileHidden: true },
       cell: ({ row }) => {
-        return (
-          <TableId value={row.getValue('id')} className='w-[60px]' />
-        )
+        return <TableId value={row.getValue('id')} className='w-[60px]' />
       },
       size: 80,
     },
@@ -233,7 +231,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
                   className='cursor-help'
                 />
               }
-             />
+            />
             <TooltipContent>
               <div className='space-y-1 text-xs'>
                 <div>

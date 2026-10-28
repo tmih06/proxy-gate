@@ -157,7 +157,7 @@ export function WaffoPancakeSettingsSection({
           typeof body.data === 'object' &&
           body.data
         ) {
-          stores = (body.data).stores ?? []
+          stores = body.data.stores ?? []
         } else {
           const reason =
             getPaymentErrorTranslation(body) ??

@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import react from '@vitejs/plugin-react'
-import { loadEnv,defineConfig,lazyPlugins } from 'vite-plus'
+import { loadEnv, defineConfig, lazyPlugins } from 'vite-plus'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -192,14 +192,14 @@ export default defineConfig(({ mode }) => {
         'promise/no-return-wrap': 'warn',
         'promise/valid-params': 'warn',
         // This project does not use the React Compiler; these rules flag
-      // compiler-specific constraints that do not apply to the current code.
-      'react/immutability': 'off',
-      'react/incompatible-library': 'off',
-      'react/preserve-manual-memoization': 'off',
-      'react/purity': 'off',
-      'react/refs': 'off',
-      'react/set-state-in-effect': 'off',
-      'react/button-has-type': 'error',
+        // compiler-specific constraints that do not apply to the current code.
+        'react/immutability': 'off',
+        'react/incompatible-library': 'off',
+        'react/preserve-manual-memoization': 'off',
+        'react/purity': 'off',
+        'react/refs': 'off',
+        'react/set-state-in-effect': 'off',
+        'react/button-has-type': 'error',
         'react/checked-requires-onchange-or-readonly': 'warn',
         'react/exhaustive-deps': 'error',
         'react/iframe-missing-sandbox': 'error',

@@ -174,9 +174,7 @@ export function ProviderFormDialog(props: ProviderFormDialogProps) {
         props.onOpenChange(false)
       }
     } else {
-      const res = await createProvider.mutateAsync(
-        values
-      )
+      const res = await createProvider.mutateAsync(values)
       if (res.success) {
         props.onOpenChange(false)
       }
