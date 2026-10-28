@@ -75,13 +75,13 @@ export function NavGroup({ title, items }: NavGroupProps) {
 
           // Special handling: dynamic chat presets list
           if (item.type === 'chat-presets') {
-            return <ChatPresetsItem key={key} item={item as NavChatPresets} />
+            return <ChatPresetsItem key={key} item={item} />
           }
 
           // If no sub-items, render regular link
           if (!item.items) {
             return (
-              <SidebarMenuLink key={key} item={item as NavLink} href={href} />
+              <SidebarMenuLink key={key} item={item} href={href} />
             )
           }
 
@@ -90,7 +90,7 @@ export function NavGroup({ title, items }: NavGroupProps) {
             return (
               <SidebarMenuCollapsedDropdown
                 key={key}
-                item={item as NavCollapsible}
+                item={item}
                 href={href}
               />
             )
@@ -100,7 +100,7 @@ export function NavGroup({ title, items }: NavGroupProps) {
           return (
             <SidebarMenuCollapsible
               key={key}
-              item={item as NavCollapsible}
+              item={item}
               href={href}
             />
           )
@@ -248,7 +248,7 @@ function SidebarMenuCollapsedDropdown({
                 render={
                   <Link
                     to={sub.url}
-                    className={`${checkIsActive(href, sub) ? 'bg-secondary' : ''}`}
+                    className={checkIsActive(href, sub) ? 'bg-secondary' : ''}
                   />
                 }
               >

@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
-import { assert, expect, test } from 'vitest'
+import { assert, expect, test } from 'vite-plus/test'
 
 import { GroupRatioVisualEditor } from '../group-ratio-visual-editor'
 

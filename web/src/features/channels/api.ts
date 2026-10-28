@@ -460,7 +460,7 @@ export async function getMultiKeyStatus(
     page,
     page_size: pageSize,
     status,
-  }) as Promise<MultiKeyStatusResponse>
+  })
 }
 
 /**
@@ -474,7 +474,7 @@ export async function enableMultiKey(
     channel_id: channelId,
     action: 'enable_key',
     key_index: keyIndex,
-  }) as Promise<{ success: boolean; message?: string }>
+  })
 }
 
 /**
@@ -488,7 +488,7 @@ export async function disableMultiKey(
     channel_id: channelId,
     action: 'disable_key',
     key_index: keyIndex,
-  }) as Promise<{ success: boolean; message?: string }>
+  })
 }
 
 /**
@@ -502,7 +502,7 @@ export async function deleteMultiKey(
     channel_id: channelId,
     action: 'delete_key',
     key_index: keyIndex,
-  }) as Promise<{ success: boolean; message?: string }>
+  })
 }
 
 /**
@@ -514,7 +514,7 @@ export async function enableAllMultiKeys(
   return manageMultiKeys({
     channel_id: channelId,
     action: 'enable_all_keys',
-  }) as Promise<{ success: boolean; message?: string }>
+  })
 }
 
 /**
@@ -526,7 +526,7 @@ export async function disableAllMultiKeys(
   return manageMultiKeys({
     channel_id: channelId,
     action: 'disable_all_keys',
-  }) as Promise<{ success: boolean; message?: string }>
+  })
 }
 
 /**

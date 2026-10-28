@@ -125,7 +125,7 @@ function setDeepValue(
 
     const next = current[segment]
     if (isPlainObject(next)) {
-      current = next as Record<string, unknown>
+      current = next
       return
     }
 

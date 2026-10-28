@@ -277,12 +277,12 @@ export async function fetchLogsByCategory(
 
   if (logCategory === 'drawing') {
     return isAdmin
-      ? await getAllMidjourneyLogs(paramsWithFilter as GetMidjourneyLogsParams)
-      : await getUserMidjourneyLogs(paramsWithFilter as GetMidjourneyLogsParams)
+      ? await getAllMidjourneyLogs(paramsWithFilter)
+      : await getUserMidjourneyLogs(paramsWithFilter)
   }
 
   // task logs
   return isAdmin
-    ? await getAllTaskLogs(paramsWithFilter as GetTaskLogsParams)
-    : await getUserTaskLogs(paramsWithFilter as GetTaskLogsParams)
+    ? await getAllTaskLogs(paramsWithFilter)
+    : await getUserTaskLogs(paramsWithFilter)
 }

@@ -83,7 +83,7 @@ function ModelsContent() {
     (section: string) => {
       void navigate({
         to: '/models/$section',
-        params: { section: section as ModelsSectionId },
+        params: { section },
         search: (previous) => previous,
       })
     },

@@ -33,7 +33,7 @@ import {
   expect,
   test,
   vi,
-} from 'vitest'
+} from 'vite-plus/test'
 
 import en from '@/i18n/locales/en.json'
 import zh from '@/i18n/locales/zh.json'

@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { render, screen, waitFor } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vite-plus/test'
 
 import { PerformanceOverview } from '@/features/dashboard/components/models/performance-overview'
 import { PerformanceHealthPanel } from '@/features/dashboard/components/overview/performance-health-panel'

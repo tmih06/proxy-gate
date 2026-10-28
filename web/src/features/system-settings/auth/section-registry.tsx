@@ -92,10 +92,7 @@ const AUTH_SECTIONS = [
           'passkey.origins': settings['passkey.origins'],
           'passkey.allow_insecure_origin':
             settings['passkey.allow_insecure_origin'],
-          'passkey.user_verification': settings['passkey.user_verification'] as
-            | 'required'
-            | 'preferred'
-            | 'discouraged',
+          'passkey.user_verification': settings['passkey.user_verification'],
           'passkey.attachment_preference':
             settings['passkey.attachment_preference'],
         }}

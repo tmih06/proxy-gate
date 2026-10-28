@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { render } from '@testing-library/react'
-import { expect, test } from 'vitest'
+import { expect, test } from 'vite-plus/test'
 
 import { Markdown } from '../markdown'
 

@@ -32,7 +32,7 @@ import {
   within,
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { afterEach, beforeEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vite-plus/test'
 
 import { api, type ApiRequestConfig } from '@/lib/api'
 import { useAuthStore } from '@/stores/auth-store'

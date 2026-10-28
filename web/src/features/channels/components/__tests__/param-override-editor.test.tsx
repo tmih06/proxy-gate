@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { afterAll, beforeAll, expect, test, vi } from 'vitest'
+import { afterAll, beforeAll, expect, test, vi } from 'vite-plus/test'
 
 import { ParamOverrideEditorDialog } from '../dialogs/param-override-editor-dialog'
 

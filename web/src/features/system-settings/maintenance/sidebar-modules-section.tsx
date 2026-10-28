@@ -217,7 +217,7 @@ export function SidebarModulesSection({
                 <FormField
                   control={form.control}
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  name={`${sectionKey}.enabled` as any}
+                  name={`${sectionKey}.enabled`}
                   render={({ field }) => (
                     <SettingsSwitchItem>
                       <SettingsSwitchContent>
@@ -247,7 +247,7 @@ export function SidebarModulesSection({
                         key={`${sectionKey}.${moduleKey}`}
                         control={form.control}
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        name={`${sectionKey}.${moduleKey}` as any}
+                        name={`${sectionKey}.${moduleKey}`}
                         render={({ field }) => (
                           <SettingsSwitchItem className='py-2'>
                             <SettingsSwitchContent>

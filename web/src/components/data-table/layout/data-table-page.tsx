@@ -80,7 +80,7 @@ export type DataTablePageProps<TData> = {
   /**
    * Column definitions. Used for skeleton column count and empty-state colSpan.
    */
-  columns: ColumnDef<TData, unknown>[]
+  columns: ColumnDef<TData>[]
 
   /**
    * Initial loading state — renders {@link TableSkeleton} or mobile skeleton.

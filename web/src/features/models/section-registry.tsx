@@ -43,8 +43,7 @@ export type ModelsSectionId = (typeof MODELS_SECTIONS)[number]['id']
 
 const modelsRegistry = createSectionRegistry<
   ModelsSectionId,
-  Record<string, never>,
-  []
+  Record<string, never>
 >({
   sections: MODELS_SECTIONS,
   defaultSection: 'metadata',

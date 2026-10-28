@@ -152,7 +152,7 @@ export function GlobalSettingsCard({ defaultValues }: GlobalSettingsCardProps) {
   })
 
   useEffect(() => {
-    form.reset(defaultValues as GlobalModelSettingsFormInput)
+    form.reset(defaultValues)
   }, [defaultValues, form])
 
   const pingEnabled = form.watch('general_setting.ping_interval_enabled')

@@ -30,7 +30,7 @@ import { createInstance, type i18n } from 'i18next'
 import { useState, type ComponentProps } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { toast } from 'sonner'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vite-plus/test'
 
 import zhTW from '@/i18n/locales/zh-TW.json'
 import zh from '@/i18n/locales/zh.json'

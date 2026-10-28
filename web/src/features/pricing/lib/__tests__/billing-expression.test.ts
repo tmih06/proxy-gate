@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { createInstance } from 'i18next'
-import { assert, afterEach, describe, expect, test, vi } from 'vitest'
+import { assert, afterEach, describe, expect, test, vi } from 'vite-plus/test'
 
 import { getTieredBillingSummary } from '@/features/usage-logs/lib/format'
 import zh from '@/i18n/locales/zh.json'

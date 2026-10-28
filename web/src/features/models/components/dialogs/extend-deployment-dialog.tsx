@@ -121,7 +121,7 @@ export function ExtendDeploymentDialog({
   const priceSummary = useMemo(() => {
     const data = priceRes?.data
     if (!data || typeof data !== 'object') return ''
-    const record = data as Record<string, unknown>
+    const record = data
     const breakdown = record.price_breakdown
     let total: unknown = record.total_cost
     if (

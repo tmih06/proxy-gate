@@ -40,7 +40,7 @@ import {
 import userEvent from '@testing-library/user-event'
 import { createInstance } from 'i18next'
 import { I18nextProvider } from 'react-i18next'
-import { afterEach, beforeEach, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, expect, it, vi } from 'vite-plus/test'
 
 import { TooltipProvider } from '@/components/ui/tooltip'
 import zh from '@/i18n/locales/zh.json'
@@ -84,7 +84,7 @@ function QuotaTable(props: { remaining: number; used: number }) {
         used_quota: props.used,
         request_count: 0,
         group: 'default',
-      } as User,
+      },
     ],
     getCoreRowModel: getCoreRowModel(),
   })

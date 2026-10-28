@@ -22,7 +22,7 @@ import { tmpdir } from 'node:os'
 import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { afterAll, beforeAll, describe, expect, it } from 'vite-plus/test'
 
 const cases = [
   ['raw-language', '(1234).toLocaleString(i18n.language)', true],
@@ -125,15 +125,8 @@ beforeAll(() => {
   }
   const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..')
   const result = spawnSync(
-    process.execPath,
-    [
-      join(root, 'node_modules/oxlint/bin/oxlint'),
-      '-c',
-      join(root, '.oxlintrc.json'),
-      '--format',
-      'json',
-      directory,
-    ],
+    join(root, 'node_modules/.bin/vp'),
+    ['lint', '--format', 'json', directory],
     { cwd: root, encoding: 'utf8' }
   )
   expect(result.error).toBeUndefined()

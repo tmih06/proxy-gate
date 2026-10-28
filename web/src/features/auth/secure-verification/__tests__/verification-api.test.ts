@@ -25,7 +25,7 @@ import {
 
 import { waitFor } from '@testing-library/react'
 import { AxiosError, type InternalAxiosRequestConfig } from 'axios'
-import { afterEach, expect, it, vi } from 'vitest'
+import { afterEach, expect, it, vi } from 'vite-plus/test'
 
 import { api } from '@/lib/api'
 import { AuthOperationError, authResult } from '@/lib/secure-verification'

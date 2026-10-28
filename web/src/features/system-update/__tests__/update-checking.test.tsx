@@ -34,7 +34,14 @@ import {
 import userEvent from '@testing-library/user-event'
 import type { ReactNode } from 'react'
 import { toast } from 'sonner'
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  test,
+  vi,
+} from 'vite-plus/test'
 
 import { UpdateCheckerSection } from '@/features/system-settings/maintenance/update-checker-section'
 import { api } from '@/lib/api'

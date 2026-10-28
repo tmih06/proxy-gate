@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { renderHook } from '@testing-library/react'
-import { afterEach, expect, test, vi } from 'vitest'
+import { afterEach, expect, test, vi } from 'vite-plus/test'
 
 import { useRedirectPanelPlacement } from '../use-redirect-panel-placement'
 
@@ -40,7 +40,7 @@ function mockSheet(rect: { left: number; right: number }, innerWidth: number) {
     width: rect.right - rect.left,
     height: 800,
     toJSON: () => ({}),
-  } as DOMRect)
+  })
   return { current: anchor }
 }
 

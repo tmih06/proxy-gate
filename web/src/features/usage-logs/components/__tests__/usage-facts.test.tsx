@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { render, screen, within } from '@testing-library/react'
 import i18next from 'i18next'
-import { afterEach, beforeAll, describe, expect, test } from 'vitest'
+import { afterEach, beforeAll, describe, expect, test } from 'vite-plus/test'
 
 import type { UsageLog } from '../../data/schema'
 import type { LogOtherData } from '../../types'

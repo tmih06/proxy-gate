@@ -34,7 +34,7 @@ import {
 import userEvent from '@testing-library/user-event'
 import { createInstance } from 'i18next'
 import { I18nextProvider } from 'react-i18next'
-import { afterEach, assert, beforeEach, expect, it, vi } from 'vitest'
+import { afterEach, assert, beforeEach, expect, it, vi } from 'vite-plus/test'
 
 import { api } from '@/lib/api'
 import { ROLE } from '@/lib/roles'

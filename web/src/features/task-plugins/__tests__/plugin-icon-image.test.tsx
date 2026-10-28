@@ -20,7 +20,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { StrictMode } from 'react'
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  test,
+  vi,
+} from 'vite-plus/test'
 
 import { TaskPluginChannelBadge } from '@/features/channels/components/channel-type-badge'
 import { api } from '@/lib/api'

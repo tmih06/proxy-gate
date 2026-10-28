@@ -31,7 +31,7 @@ const PAGE_SIZE_STORAGE_KEY = 'page-size'
 
 function getStoredPageSize(): number | undefined {
   try {
-    const n = parseInt(localStorage.getItem(PAGE_SIZE_STORAGE_KEY) ?? '', 10)
+    const n = Number.parseInt(localStorage.getItem(PAGE_SIZE_STORAGE_KEY) ?? '', 10)
     return n > 0 ? n : undefined // n > 0 also rejects NaN
   } catch {
     return undefined
@@ -115,12 +115,12 @@ export function useTableUrlState(
     columnFilters: columnFiltersCfg = [],
   } = params
 
-  const pageKey = paginationCfg?.pageKey ?? ('page' as string)
-  const pageSizeKey = paginationCfg?.pageSizeKey ?? ('pageSize' as string)
+  const pageKey = paginationCfg?.pageKey ?? ('page')
+  const pageSizeKey = paginationCfg?.pageSizeKey ?? ('pageSize')
   const defaultPage = paginationCfg?.defaultPage ?? 1
   const defaultPageSize = paginationCfg?.defaultPageSize ?? 20
 
-  const globalFilterKey = globalFilterCfg?.key ?? ('filter' as string)
+  const globalFilterKey = globalFilterCfg?.key ?? ('filter')
   const globalFilterEnabled = globalFilterCfg?.enabled ?? true
   const trimGlobal = globalFilterCfg?.trim ?? true
 
@@ -128,7 +128,7 @@ export function useTableUrlState(
   const initialColumnFilters: ColumnFiltersState = useMemo(() => {
     const collected: ColumnFiltersState = []
     for (const cfg of columnFiltersCfg) {
-      const raw = (search as SearchRecord)[cfg.searchKey]
+      const raw = (search)[cfg.searchKey]
       const deserialize = cfg.deserialize ?? ((v: unknown) => v)
       if (cfg.type === 'string') {
         const value = (deserialize(raw) as string) ?? ''
@@ -156,8 +156,8 @@ export function useTableUrlState(
   }, [search])
 
   const pagination: PaginationState = useMemo(() => {
-    const rawPage = (search as SearchRecord)[pageKey]
-    const rawPageSize = (search as SearchRecord)[pageSizeKey]
+    const rawPage = (search)[pageKey]
+    const rawPageSize = (search)[pageSizeKey]
     const pageNum = typeof rawPage === 'number' ? rawPage : defaultPage
     const pageSizeNum =
       typeof rawPageSize === 'number'
@@ -173,7 +173,7 @@ export function useTableUrlState(
     if (nextPageSize !== pagination.pageSize) setStoredPageSize(nextPageSize)
     navigate({
       search: (prev) => ({
-        ...(prev as SearchRecord),
+        ...(prev),
         [pageKey]: nextPage <= defaultPage ? undefined : nextPage,
         [pageSizeKey]: nextPageSize,
       }),
@@ -182,7 +182,7 @@ export function useTableUrlState(
 
   const [globalFilter, setGlobalFilter] = useState<string | undefined>(() => {
     if (!globalFilterEnabled) return undefined
-    const raw = (search as SearchRecord)[globalFilterKey]
+    const raw = (search)[globalFilterKey]
     return typeof raw === 'string' ? raw : ''
   })
 
@@ -197,7 +197,7 @@ export function useTableUrlState(
           setGlobalFilter(value)
           navigate({
             search: (prev) => ({
-              ...(prev as SearchRecord),
+              ...(prev),
               [pageKey]: undefined,
               [globalFilterKey]: value ? value : undefined,
             }),
@@ -217,12 +217,12 @@ export function useTableUrlState(
       const serialize = cfg.serialize ?? ((v: unknown) => v)
       if (cfg.type === 'string') {
         const value =
-          typeof found?.value === 'string' ? (found.value as string) : ''
+          typeof found?.value === 'string' ? (found.value) : ''
         patch[cfg.searchKey] =
           value.trim() !== '' ? serialize(value) : undefined
       } else {
         const value = Array.isArray(found?.value)
-          ? (found!.value as unknown[])
+          ? (found.value as unknown[])
           : []
         patch[cfg.searchKey] = value.length > 0 ? serialize(value) : undefined
       }
@@ -230,7 +230,7 @@ export function useTableUrlState(
 
     navigate({
       search: (prev) => ({
-        ...(prev as SearchRecord),
+        ...(prev),
         [pageKey]: undefined,
         ...patch,
       }),
@@ -241,13 +241,13 @@ export function useTableUrlState(
     pageCount: number,
     opts: { resetTo?: 'first' | 'last' } = { resetTo: 'first' }
   ) => {
-    const currentPage = (search as SearchRecord)[pageKey]
+    const currentPage = (search)[pageKey]
     const pageNum = typeof currentPage === 'number' ? currentPage : defaultPage
     if (pageCount > 0 && pageNum > pageCount) {
       navigate({
         replace: true,
         search: (prev) => ({
-          ...(prev as SearchRecord),
+          ...(prev),
           [pageKey]: opts.resetTo === 'last' ? pageCount : undefined,
         }),
       })

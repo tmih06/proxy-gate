@@ -34,7 +34,7 @@ import {
   expect,
   test,
   vi,
-} from 'vitest'
+} from 'vite-plus/test'
 
 import { api } from '@/lib/api'
 import { STATUS_QUERY_KEY } from '@/lib/status-query'

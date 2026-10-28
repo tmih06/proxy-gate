@@ -25,7 +25,7 @@ import {
 } from '@tanstack/react-router'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { afterAll, afterEach, beforeAll, expect, test } from 'vitest'
+import { afterAll, afterEach, beforeAll, expect, test } from 'vite-plus/test'
 
 import { SearchProvider } from '@/context/search-provider'
 import { ROLE } from '@/lib/roles'

@@ -33,9 +33,9 @@ export function formatNumber(
   value: number | null | undefined,
   locales?: Intl.LocalesArgument
 ): string {
-  if (value == null || Number.isNaN(value as number)) return '-'
+  if (value == null || Number.isNaN(value)) return '-'
   return Intl.NumberFormat(locales, { maximumFractionDigits: 2 }).format(
-    value as number
+    value
   )
 }
 
@@ -43,23 +43,23 @@ export function formatCompactNumber(
   value: number | null | undefined,
   locales?: Intl.LocalesArgument
 ): string {
-  if (value == null || Number.isNaN(value as number)) return '-'
+  if (value == null || Number.isNaN(value)) return '-'
   return Intl.NumberFormat(locales, {
     notation: 'compact',
     maximumFractionDigits: 1,
-  }).format(value as number)
+  }).format(value)
 }
 
 export function formatPercent(value: number | null | undefined): string {
-  if (value == null || Number.isNaN(value as number)) return '-'
+  if (value == null || Number.isNaN(value)) return '-'
   return Intl.NumberFormat(undefined, {
     style: 'percent',
     maximumFractionDigits: 2,
-  }).format((value as number) / 100)
+  }).format((value) / 100)
 }
 
 export function formatCurrencyUSD(value: number | null | undefined): string {
-  return formatCurrencyFromUSD(value == null ? null : (value as number))
+  return formatCurrencyFromUSD(value == null ? null : (value))
 }
 
 // ============================================================================

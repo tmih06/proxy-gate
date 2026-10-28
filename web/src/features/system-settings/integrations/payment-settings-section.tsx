@@ -369,8 +369,8 @@ export function PaymentSettingsSection({
       value: PaymentFormValues[keyof PaymentFormValues]
     ) => {
       form.setValue(
-        key as Parameters<typeof form.setValue>[0],
-        value as Parameters<typeof form.setValue>[1],
+        key,
+        value,
         {
           shouldDirty: true,
           shouldValidate: true,
@@ -386,8 +386,8 @@ export function PaymentSettingsSection({
       value: WaffoFormFieldValues[K]
     ) => {
       setPaymentValue(
-        key as keyof PaymentFormValues,
-        value as PaymentFormValues[keyof PaymentFormValues]
+        key,
+        value
       )
     },
     [setPaymentValue]
@@ -399,8 +399,8 @@ export function PaymentSettingsSection({
       value: WaffoPancakeSettingsValues[K]
     ) => {
       setPaymentValue(
-        key as keyof PaymentFormValues,
-        value as PaymentFormValues[keyof PaymentFormValues]
+        key,
+        value
       )
     },
     [setPaymentValue]
@@ -747,7 +747,7 @@ export function PaymentSettingsSection({
         typeof body.data === 'object' &&
         body.data
       ) {
-        const saved = body.data as { product_id: string; store_id: string }
+        const saved = body.data
         const savedBinding = {
           storeID: saved.store_id,
           productID: saved.product_id,

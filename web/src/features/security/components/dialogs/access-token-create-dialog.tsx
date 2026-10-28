@@ -140,7 +140,7 @@ export function AccessTokenCreateDialog(props: AccessTokenCreateDialogProps) {
                   value={[field.value]}
                   onValueChange={(values) => {
                     const next = values.find((value) => value !== field.value)
-                    if (next) field.onChange(next as AccessTokenExpiryPreset)
+                    if (next) field.onChange(next)
                   }}
                   aria-label={t('Expiration')}
                   variant='outline'

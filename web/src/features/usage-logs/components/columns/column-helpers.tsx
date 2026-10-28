@@ -56,7 +56,7 @@ export function CacheTooltip({
       <Tooltip>
         <TooltipTrigger
           render={<Zap className={`size-3 flex-shrink-0 ${color}`} />}
-        ></TooltipTrigger>
+         />
         <TooltipContent side='top'>
           <p className='text-xs'>
             {label}: {formatTokens(tokens)}
@@ -87,7 +87,7 @@ export function createTimestampColumn<T>(config: {
       <DataTableColumnHeader column={column} title={title} />
     ),
     cell: ({ row }) => {
-      const timestamp = row.getValue(accessorKey) as number
+      const timestamp = row.getValue(accessorKey)
       if (!timestamp) {
         return <span className='text-muted-foreground/60 text-xs'>-</span>
       }
@@ -177,7 +177,7 @@ export function createChannelColumn<T>(config: {
       <DataTableColumnHeader column={column} title={headerLabel} />
     ),
     cell: ({ row }) => {
-      const channelId = row.getValue(accessorKey) as number
+      const channelId = row.getValue(accessorKey)
       if (!channelId) {
         return <span className='text-muted-foreground/60 text-xs'>-</span>
       }
@@ -215,7 +215,7 @@ export function createFailReasonColumn<T>(config: {
       const { t } = useTranslation()
       const failReason = translateServerText(
         t,
-        row.getValue(accessorKey) as string
+        row.getValue(accessorKey)
       )
       const [dialogOpen, setDialogOpen] = useState(false)
 
@@ -262,7 +262,7 @@ export function createProgressColumn<T>(config: {
       <DataTableColumnHeader column={column} title={headerLabel} />
     ),
     cell: ({ row }) => {
-      const progress = row.getValue(accessorKey) as string
+      const progress = row.getValue(accessorKey)
       if (!progress) {
         return <span className='text-muted-foreground/60 text-xs'>-</span>
       }

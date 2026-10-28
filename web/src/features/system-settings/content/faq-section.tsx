@@ -286,7 +286,7 @@ export function FAQSection({ enabled, data }: FAQSectionProps) {
                 <Checkbox
                   checked={selectedIds.includes(faq.id)}
                   onCheckedChange={(checked) =>
-                    toggleSelectOne(faq.id, checked as boolean)
+                    toggleSelectOne(faq.id, checked)
                   }
                 />
               ),

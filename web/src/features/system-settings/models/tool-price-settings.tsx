@@ -107,7 +107,7 @@ function parseInitialPrices(
       parsed &&
       typeof parsed === 'object' &&
       !Array.isArray(parsed) &&
-      Object.keys(parsed as object).length > 0
+      Object.keys(parsed).length > 0
     ) {
       const validPrices: Record<string, number> = {}
       for (const [key, value] of Object.entries(parsed)) {

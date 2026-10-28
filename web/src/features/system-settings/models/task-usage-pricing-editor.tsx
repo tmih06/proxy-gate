@@ -450,7 +450,7 @@ export const TaskUsagePricingEditor = memo(function TaskUsagePricingEditor(
             ]}
             value={editorMode}
             onValueChange={(value) =>
-              value !== null && handleModeChange(value as EditorMode)
+              value !== null && handleModeChange(value)
             }
           >
             <SelectTrigger

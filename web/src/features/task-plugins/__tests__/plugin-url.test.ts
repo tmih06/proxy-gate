@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import assert from 'node:assert/strict'
 
-import { describe, test } from 'vitest'
+import { describe, test } from 'vite-plus/test'
 
 import {
   fetchPluginSourceText,
@@ -186,7 +186,7 @@ describe('browser plugin source fetch', () => {
             bodyRead = true
             return ''
           },
-        } as unknown as Response
+        }
       }),
       (error: unknown) => {
         assert.ok(error instanceof PluginSourceFetchError)

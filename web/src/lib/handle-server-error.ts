@@ -24,7 +24,7 @@ import {
   isServerErrorCancelled,
 } from './server-error-message'
 
-const reportedErrors = new WeakSet<object>()
+const reportedErrors = new WeakSet()
 
 /** Also used when a failure has already been presented inline. */
 export function markServerErrorHandled(error: unknown): void {

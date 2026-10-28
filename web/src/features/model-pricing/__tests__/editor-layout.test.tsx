@@ -27,7 +27,7 @@ import {
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { afterEach, expect, it, vi } from 'vitest'
+import { afterEach, expect, it, vi } from 'vite-plus/test'
 
 import { SettingsPageProvider } from '@/features/system-settings/components/settings-page-context'
 import { ModelPricingEditorPanel } from '@/features/system-settings/models/model-pricing-sheet'

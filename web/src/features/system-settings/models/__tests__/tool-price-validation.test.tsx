@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen } from '@testing-library/react'
 import i18next from 'i18next'
-import { beforeAll, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, test } from 'vite-plus/test'
 
 import { ToolPriceSettings } from '../tool-price-settings'
 

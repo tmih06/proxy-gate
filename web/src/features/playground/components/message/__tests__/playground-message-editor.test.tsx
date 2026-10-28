@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import i18next from 'i18next'
-import { beforeAll, describe, expect, test, vi } from 'vitest'
+import { beforeAll, describe, expect, test, vi } from 'vite-plus/test'
 
 import type { Message } from '../../../types'
 import { PlaygroundMessageEditor } from '../playground-message-editor'

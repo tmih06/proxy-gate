@@ -21,7 +21,7 @@ import { resolve } from 'node:path'
 import { runInNewContext } from 'node:vm'
 
 import { act, render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vite-plus/test'
 
 import { getLobeIcon, getLobeIconNames } from '../lobe-icon'
 

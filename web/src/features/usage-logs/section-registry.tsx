@@ -43,8 +43,7 @@ export type UsageLogsSectionId = (typeof USAGE_LOGS_SECTIONS)[number]['id']
 
 const usageLogsRegistry = createSectionRegistry<
   UsageLogsSectionId,
-  Record<string, never>,
-  []
+  Record<string, never>
 >({
   sections: USAGE_LOGS_SECTIONS,
   defaultSection: 'common',

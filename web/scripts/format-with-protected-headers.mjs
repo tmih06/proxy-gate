@@ -140,14 +140,10 @@ let exitCode = 0
 
 try {
   headers = stripProtectedHeaders(files)
-  const result = spawnSync(
-    'oxfmt',
-    ['-c', '.oxfmtrc.json', '--ignore-path', '.gitignore', '--write', '.'],
-    {
-      cwd: root,
-      stdio: 'inherit',
-    }
-  )
+  const result = spawnSync('vp', ['fmt', '--write', '.'], {
+    cwd: root,
+    stdio: 'inherit',
+  })
   exitCode = result.status ?? 1
   restoreProtectedHeaders(headers)
 

@@ -20,7 +20,7 @@ import '@testing-library/jest-dom/vitest'
 import { cleanup, configure } from '@testing-library/react'
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { afterEach, beforeAll } from 'vitest'
+import { afterEach, beforeAll } from 'vite-plus/test'
 
 // The testing-library default of 1000ms for findBy*/waitFor is too tight for
 // this suite on contended CI runners, where a first-in-file test also pays the

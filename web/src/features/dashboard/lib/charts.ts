@@ -116,7 +116,7 @@ export function processChartData(
           ...otherItems,
         ].reduce((sum, item) => {
           const raw = item.datum
-            ? Number((item.datum as Record<string, unknown>)?.rawQuota) || 0
+            ? Number((item.datum)?.rawQuota) || 0
             : 0
           return sum + raw
         }, 0)

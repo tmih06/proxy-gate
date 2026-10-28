@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { act, renderHook } from '@testing-library/react'
 import { toast } from 'sonner'
-import { afterEach, describe, expect, test, vi } from 'vitest'
+import { afterEach, describe, expect, test, vi } from 'vite-plus/test'
 
 import { api, type RefreshOutcome } from '@/lib/api'
 import type { AuthBundle } from '@/stores/auth-store'

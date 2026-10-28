@@ -20,7 +20,7 @@ import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import i18next from 'i18next'
 import { useState } from 'react'
-import { afterEach, expect, it, vi } from 'vitest'
+import { afterEach, expect, it, vi } from 'vite-plus/test'
 
 import { TaskUsagePricingEditor } from '../task-usage-pricing-editor'
 
@@ -265,7 +265,7 @@ it('confirms regeneration of supported expressions and preserves their prices an
     (
       screen.getByRole('textbox', {
         name: 'Billing expression',
-      }) as HTMLTextAreaElement
+      })
     ).value
   ).toContain(expression)
   expect(onChange).not.toHaveBeenCalled()
@@ -294,7 +294,7 @@ it('confirms regeneration of supported expressions and preserves their prices an
     (
       screen.getByRole('textbox', {
         name: 'Billing expression',
-      }) as HTMLTextAreaElement
+      })
     ).value
   ).toContain('header("x-priority")')
 })

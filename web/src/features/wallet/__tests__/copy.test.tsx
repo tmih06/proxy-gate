@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { act, render, screen } from '@testing-library/react'
 import { createInstance } from 'i18next'
 import { I18nextProvider, initReactI18next } from 'react-i18next'
-import { beforeEach, expect, it, vi } from 'vitest'
+import { beforeEach, expect, it, vi } from 'vite-plus/test'
 
 import { BillingHistoryDialog } from '@/features/wallet/components/dialogs/billing-history-dialog'
 import en from '@/i18n/locales/en.json'

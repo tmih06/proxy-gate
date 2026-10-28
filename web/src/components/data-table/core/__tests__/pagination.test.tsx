@@ -23,7 +23,7 @@ import {
 } from '@tanstack/react-table'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { expect, it } from 'vitest'
+import { expect, it } from 'vite-plus/test'
 
 import { DataTablePagination } from '../pagination'
 

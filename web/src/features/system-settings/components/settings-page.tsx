@@ -122,7 +122,7 @@ export function SettingsPage<
     const baseSettings = getOptionValue(
       data?.data,
       defaultSettings
-    ) as TSettings
+    )
     return resolveSettings
       ? resolveSettings(baseSettings, data?.data)
       : baseSettings

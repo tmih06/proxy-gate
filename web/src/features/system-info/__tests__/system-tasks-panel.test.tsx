@@ -26,7 +26,7 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Toaster } from 'sonner'
-import { afterEach, expect, it, vi } from 'vitest'
+import { afterEach, expect, it, vi } from 'vite-plus/test'
 
 import { api, type ApiRequestConfig } from '@/lib/api'
 

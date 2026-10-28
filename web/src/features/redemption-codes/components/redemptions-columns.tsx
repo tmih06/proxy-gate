@@ -67,7 +67,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       meta: { mobileHidden: true },
       cell: ({ row }) => {
         return (
-          <TableId value={row.getValue('id') as number} className='w-[60px]' />
+          <TableId value={row.getValue('id')} className='w-[60px]' />
         )
       },
       size: 80,
@@ -87,7 +87,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       meta: { mobileBadge: true },
       cell: ({ row }) => {
         const redemption = row.original
-        const statusValue = row.getValue('status') as number
+        const statusValue = row.getValue('status')
 
         // Check if expired
         if (isRedemptionExpired(redemption.expired_time, statusValue)) {
@@ -118,7 +118,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       },
       filterFn: (row, id, value) => {
         const redemption = row.original
-        const statusValue = row.getValue(id) as number
+        const statusValue = row.getValue(id)
 
         // Check if expired status is being filtered
         if (value.includes(REDEMPTION_FILTER_EXPIRED)) {
@@ -158,7 +158,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       accessorKey: 'quota',
       header: t('Quota'),
       cell: ({ row }) => {
-        const quota = row.getValue('quota') as number
+        const quota = row.getValue('quota')
         return (
           <StatusBadge
             label={formatQuota(quota)}
@@ -188,7 +188,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       header: t('Expires'),
       meta: { mobileHidden: true },
       cell: ({ row }) => {
-        const expiredTime = row.getValue('expired_time') as number
+        const expiredTime = row.getValue('expired_time')
         if (expiredTime === 0) {
           return (
             <StatusBadge
@@ -215,7 +215,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       header: t('Redeemed By'),
       meta: { mobileHidden: true },
       cell: ({ row }) => {
-        const userId = row.getValue('used_user_id') as number
+        const userId = row.getValue('used_user_id')
         const redemption = row.original
 
         if (userId === 0) {
@@ -233,7 +233,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
                   className='cursor-help'
                 />
               }
-            ></TooltipTrigger>
+             />
             <TooltipContent>
               <div className='space-y-1 text-xs'>
                 <div>

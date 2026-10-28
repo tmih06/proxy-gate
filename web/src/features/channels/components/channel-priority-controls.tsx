@@ -105,7 +105,7 @@ export function ChannelSortControl(props: {
         value={props.field}
         disabled={props.disabled}
         onValueChange={(value) => {
-          if (value) props.onChange(value as ChannelSortBy, props.desc)
+          if (value) props.onChange(value, props.desc)
         }}
         items={options}
       >

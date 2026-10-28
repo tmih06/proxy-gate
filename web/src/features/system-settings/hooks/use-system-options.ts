@@ -117,9 +117,9 @@ export function getOptionValue<
       )
 
       if (parseResult.success) {
-        result[option.key as keyof T] = parseResult.value as T[keyof T]
+        result[option.key as keyof T] = parseResult.value
       } else {
-        result[option.key as keyof T] = parseResult.fallback as T[keyof T]
+        result[option.key as keyof T] = parseResult.fallback
         errors.push({ key: option.key, error: parseResult.error })
       }
     }

@@ -406,7 +406,7 @@ export function SyncWizardDialog(props: {
                 disabled={busy}
                 items={getSyncLocaleOptions(t)}
                 onValueChange={(value) => {
-                  if (value) setLocale(value as SyncLocale)
+                  if (value) setLocale(value)
                   setPreview(null)
                   setSelection({})
                   setPage(0)

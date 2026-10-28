@@ -23,7 +23,7 @@ import {
   waitFor,
   type RenderResult,
 } from '@testing-library/react'
-import { afterEach, describe, expect, test } from 'vitest'
+import { afterEach, describe, expect, test } from 'vite-plus/test'
 
 import type { Redemption } from '../../types'
 

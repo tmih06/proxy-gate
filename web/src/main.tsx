@@ -75,7 +75,7 @@ if (!rootElement) {
       document.title = name
       const metaTitle = document.querySelector(
         'meta[name="title"]'
-      ) as HTMLMetaElement | null
+      )
       if (metaTitle) metaTitle.setAttribute('content', name)
     }
     // Cache-first

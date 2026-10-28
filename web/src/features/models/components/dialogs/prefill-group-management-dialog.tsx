@@ -440,7 +440,7 @@ export function PrefillGroupManagementDialog({
             <Alert variant='destructive'>
               <AlertTitle>{t('Unable to load groups')}</AlertTitle>
               <AlertDescription>
-                {(error as Error).message ||
+                {(error).message ||
                   'Please retry or refresh the page.'}
               </AlertDescription>
             </Alert>

@@ -321,7 +321,7 @@ export function ApiInfoSection({ enabled, data }: ApiInfoSectionProps) {
                 <Checkbox
                   checked={selectedIds.includes(apiInfo.id)}
                   onCheckedChange={(checked) =>
-                    toggleSelectOne(apiInfo.id, checked as boolean)
+                    toggleSelectOne(apiInfo.id, checked)
                   }
                 />
               ),

@@ -261,7 +261,7 @@ export function Dashboard() {
     (section: string) => {
       void navigate({
         to: '/dashboard/$section',
-        params: { section: section as DashboardSectionId },
+        params: { section },
       })
     },
     [navigate]

@@ -196,7 +196,7 @@ export function useStreamRequest() {
           headers,
           method: 'POST',
           payload: JSON.stringify(payload),
-        }) as StreamEventSource,
+        }),
       setStreaming: setIsStreaming,
     })
   }

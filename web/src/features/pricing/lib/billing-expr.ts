@@ -518,8 +518,8 @@ function tryParseTimeRangePair(
   const a = tryParseTimeCondition(lower)
   const b = tryParseTimeCondition(upper)
   if (!a || !b || a.source !== 'time' || b.source !== 'time') return null
-  const ta = a as TimeCondition
-  const tb = b as TimeCondition
+  const ta = a
+  const tb = b
   if (ta.timeFunc !== tb.timeFunc || ta.timezone !== tb.timezone) return null
   if (ta.mode !== MATCH_GTE || tb.mode !== MATCH_LT) return null
   return {

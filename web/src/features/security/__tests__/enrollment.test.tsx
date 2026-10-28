@@ -27,7 +27,7 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { toast } from 'sonner'
-import { afterEach, beforeEach, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, expect, it, vi } from 'vite-plus/test'
 
 import { OAUTH_POPUP_CALLBACK_MESSAGE } from '@/features/auth/constants'
 import type { UserProfile } from '@/features/profile/types'

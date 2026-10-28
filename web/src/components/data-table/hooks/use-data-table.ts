@@ -92,7 +92,7 @@ type UseDataTableOptions<TData> = DataTableFeatureOptions<TData> &
   DataTableStateOptions &
   DataTableRowModelOptions & {
     data: TData[]
-    columns: ColumnDef<TData, unknown>[]
+    columns: ColumnDef<TData>[]
     totalCount?: number
     pageCount?: number
     ensurePageInRange?: (pageCount: number) => void
@@ -106,9 +106,9 @@ type ColumnSizingBounds = Record<
   }
 >
 
-type ColumnWithSizing<TData> = ColumnDef<TData, unknown> & {
+type ColumnWithSizing<TData> = ColumnDef<TData> & {
   accessorKey?: string | number
-  columns?: ColumnDef<TData, unknown>[]
+  columns?: ColumnDef<TData>[]
 }
 
 const COLUMN_SIZING_PERSIST_DELAY_MS = 250
@@ -171,7 +171,7 @@ function readColumnVisibility(storageKey: string | undefined): VisibilityState {
   }
 }
 
-function getColumnId<TData>(column: ColumnDef<TData, unknown>) {
+function getColumnId<TData>(column: ColumnDef<TData>) {
   const columnWithSizing = column as ColumnWithSizing<TData>
 
   if (typeof columnWithSizing.id === 'string') {
@@ -190,7 +190,7 @@ function getColumnId<TData>(column: ColumnDef<TData, unknown>) {
 }
 
 function buildColumnSizingBounds<TData>(
-  columns: ColumnDef<TData, unknown>[]
+  columns: ColumnDef<TData>[]
 ): ColumnSizingBounds {
   return columns.reduce<ColumnSizingBounds>((bounds, column) => {
     const columnWithSizing = column as ColumnWithSizing<TData>

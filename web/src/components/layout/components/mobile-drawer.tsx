@@ -224,7 +224,7 @@ export function MobileDrawer({
             initial='hidden'
             animate='visible'
             exit='exit'
-            variants={MOBILE_DRAWER_ANIMATION.overlay as Variants}
+            variants={MOBILE_DRAWER_ANIMATION.overlay}
             transition={{
               duration: MOBILE_DRAWER_CONFIG.overlayTransitionDuration,
             }}
@@ -237,7 +237,7 @@ export function MobileDrawer({
             initial='hidden'
             animate='visible'
             exit='exit'
-            variants={MOBILE_DRAWER_ANIMATION.drawer as Variants}
+            variants={MOBILE_DRAWER_ANIMATION.drawer}
           >
             <div className='flex flex-col gap-4'>
               {/* Header with logo and close button */}

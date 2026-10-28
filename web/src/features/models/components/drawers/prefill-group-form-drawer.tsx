@@ -295,7 +295,7 @@ export function PrefillGroupFormDrawer({
                       value={field.value}
                       onValueChange={(value) =>
                         value !== null &&
-                        field.onChange(value as PrefillGroupType)
+                        field.onChange(value)
                       }
                     >
                       <FormControl>

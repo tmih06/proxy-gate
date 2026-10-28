@@ -21,7 +21,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { AxiosError, type AxiosAdapter } from 'axios'
 import { toast } from 'sonner'
-import { afterEach, expect, it, vi } from 'vitest'
+import { afterEach, expect, it, vi } from 'vite-plus/test'
 
 import { api } from '@/lib/http-client'
 import { createAppQueryClient } from '@/lib/query-client'

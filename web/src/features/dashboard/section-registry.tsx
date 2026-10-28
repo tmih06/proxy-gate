@@ -53,8 +53,7 @@ const ADMIN_ONLY_SECTIONS = new Set<string>(['users'])
 
 const dashboardRegistry = createSectionRegistry<
   DashboardSectionId,
-  Record<string, never>,
-  []
+  Record<string, never>
 >({
   sections: DASHBOARD_SECTIONS,
   defaultSection: 'overview',

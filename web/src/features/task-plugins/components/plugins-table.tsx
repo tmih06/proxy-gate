@@ -129,7 +129,7 @@ export function PluginsTable(props: PluginsTableProps) {
       handleServerError(error)
     },
   })
-  const columns = useMemo<ColumnDef<TaskPluginListItem, unknown>[]>(
+  const columns = useMemo<ColumnDef<TaskPluginListItem>[]>(
     () => [
       {
         id: 'plugin',

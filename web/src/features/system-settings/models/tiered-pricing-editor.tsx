@@ -395,13 +395,13 @@ function RuleConditionRow({
     } else if (source === SOURCE_HEADER || source === SOURCE_PARAM) {
       onChange({
         ...createEmptyCondition(),
-        source: source as 'param' | 'header',
+        source,
       })
     }
   }
 
   const handleModeChange = (mode: string) => {
-    onChange({ ...condition, mode } as RequestCondition)
+    onChange({ ...condition, mode })
   }
 
   const renderTimeCondition = (timeCond: TimeCondition) => (
@@ -523,8 +523,8 @@ function RuleConditionRow({
         </SelectContent>
       </Select>
       {condition.source === SOURCE_TIME
-        ? renderTimeCondition(condition as TimeCondition)
-        : renderParamHeaderCondition(condition as ParamHeaderCondition)}
+        ? renderTimeCondition(condition)
+        : renderParamHeaderCondition(condition)}
       <Button
         variant='ghost'
         size='icon'

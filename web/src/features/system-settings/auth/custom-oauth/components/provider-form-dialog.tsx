@@ -175,7 +175,7 @@ export function ProviderFormDialog(props: ProviderFormDialogProps) {
       }
     } else {
       const res = await createProvider.mutateAsync(
-        values as Omit<CustomOAuthProvider, 'id'>
+        values
       )
       if (res.success) {
         props.onOpenChange(false)

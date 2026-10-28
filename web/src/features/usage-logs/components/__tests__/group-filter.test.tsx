@@ -33,7 +33,7 @@ import {
   within,
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { afterEach, expect, it, vi } from 'vitest'
+import { afterEach, expect, it, vi } from 'vite-plus/test'
 
 import { api } from '@/lib/api'
 import { useAuthStore } from '@/stores/auth-store'

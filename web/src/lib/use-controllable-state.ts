@@ -75,7 +75,7 @@ export function useControllableState<T>({
         }
       } else {
         setUncontrolledProp(
-          next as T | undefined | ((prev: T | undefined) => T | undefined)
+          next
         )
       }
     },

@@ -297,7 +297,7 @@ export function UptimeKumaSection({ enabled, data }: UptimeKumaSectionProps) {
                 <Checkbox
                   checked={selectedIds.includes(group.id)}
                   onCheckedChange={(checked) =>
-                    toggleSelectOne(group.id, checked as boolean)
+                    toggleSelectOne(group.id, checked)
                   }
                 />
               ),

@@ -1623,7 +1623,7 @@ export function ParamOverrideEditorDialog(
       const preset =
         TEMPLATE_PRESET_CONFIG[templatePresetKey] ||
         TEMPLATE_PRESET_CONFIG.operations_default
-      const payload = preset.payload as Record<string, unknown>
+      const payload = preset.payload
 
       if (preset.kind === 'legacy') {
         if (mode === 'append' && visualMode === 'legacy') {
@@ -1656,7 +1656,7 @@ export function ParamOverrideEditorDialog(
         return
       }
 
-      const operationsPayload = ((payload as Record<string, unknown>)
+      const operationsPayload = ((payload)
         .operations || []) as Record<string, unknown>[]
 
       if (mode === 'append') {

@@ -818,7 +818,7 @@ export function useChannelsColumns(
           const typeNameKey = getChannelTypeLabel(type)
           const typeName = t(typeNameKey)
           const iconName = getChannelTypeIcon(type)
-          const channel = row.original as Channel
+          const channel = row.original
           const isMultiKey = isMultiKeyChannel(channel)
           const multiKeyMode = channel.channel_info?.multi_key_mode ?? 'random'
           const MultiKeyModeIcon =
@@ -946,7 +946,7 @@ export function useChannelsColumns(
         cell: ({ row }) => {
           const isTagRow = isTagAggregateRow(row.original)
           const status = row.getValue('status') as number
-          const channel = row.original as Channel
+          const channel = row.original
 
           // Tag row: show aggregated status
           if (isTagRow) {

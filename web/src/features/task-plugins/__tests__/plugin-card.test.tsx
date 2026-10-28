@@ -23,7 +23,7 @@ import {
 } from '@tanstack/react-table'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, test, vi } from 'vitest'
+import { describe, expect, test, vi } from 'vite-plus/test'
 
 import { MarketplacePluginCard } from '../components/marketplace-plugin-card'
 import { PluginCard } from '../components/plugin-card'
@@ -63,7 +63,7 @@ function makeItem(overrides?: Partial<TaskPluginListItem>): TaskPluginListItem {
   }
 }
 
-const stubColumns: ColumnDef<TaskPluginListItem, unknown>[] = [
+const stubColumns: ColumnDef<TaskPluginListItem>[] = [
   { id: 'source', cell: () => 'source-badge' },
   { id: 'runtime', cell: () => 'runtime-badge' },
   { id: 'enabled', cell: () => 'enabled-switch' },

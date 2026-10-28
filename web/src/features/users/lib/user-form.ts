@@ -27,7 +27,7 @@ import { quotaUnitsToDollars } from '@/lib/format'
 import { ROLE } from '@/lib/roles'
 
 import { DEFAULT_GROUP } from '../constants'
-import { type UserFormData, type User } from '../types'
+import type { UserFormData, User } from '../types'
 
 // ============================================================================
 // Form Schema
@@ -89,7 +89,7 @@ export function transformFormDataToPayload(
   // the field (the backend then leaves existing permissions untouched).
   if (role >= ROLE.ADMIN && catalog) {
     payload.admin_permissions = normalizeAdminPermissions(
-      data.admin_permissions as AdminPermissionMatrix | undefined,
+      data.admin_permissions,
       catalog
     )
   }

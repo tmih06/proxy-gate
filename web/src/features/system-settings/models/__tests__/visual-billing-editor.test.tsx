@@ -20,7 +20,7 @@ import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createInstance } from 'i18next'
 import { I18nextProvider } from 'react-i18next'
-import { assert, describe, expect, test, vi } from 'vitest'
+import { assert, describe, expect, test, vi } from 'vite-plus/test'
 
 import { combineBillingExpr } from '@/features/pricing/lib/billing-expr'
 import { evaluateBillingExpression } from '@/features/pricing/lib/billing-expression/runtime'

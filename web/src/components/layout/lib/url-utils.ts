@@ -67,7 +67,7 @@ export function checkIsActive(
 
   // For collapsible items (NavCollapsible), check sub-items first
   if ('items' in item && item.items) {
-    const collapsibleItem = item as NavCollapsible
+    const collapsibleItem = item
     const items = collapsibleItem.items
 
     // Check if any sub-item matches
@@ -88,7 +88,7 @@ export function checkIsActive(
         return false
       })
     )
-      return true
+      {return true}
   }
 
   // For regular link items, check the item's URL

@@ -24,7 +24,7 @@ import {
 import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Toaster, toast } from 'sonner'
-import { afterEach, expect, test, vi } from 'vitest'
+import { afterEach, expect, test, vi } from 'vite-plus/test'
 
 import { useDataTable } from '@/components/data-table'
 import { api } from '@/lib/api'

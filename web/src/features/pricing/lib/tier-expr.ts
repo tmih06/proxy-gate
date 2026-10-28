@@ -202,7 +202,7 @@ export function tryParseVisualConfig(
         if (val != null) tier[cv.field] = Number(val)
       })
       return normalizeVisualConfig({
-        tiers: [normalizeVisualTier(tier as Partial<VisualTier>)],
+        tiers: [normalizeVisualTier(tier)],
       })
     }
 
@@ -241,7 +241,7 @@ export function tryParseVisualConfig(
         const val = m[5 + i]
         if (val != null) tier[cv.field] = Number(val)
       })
-      tiers.push(normalizeVisualTier(tier as Partial<VisualTier>))
+      tiers.push(normalizeVisualTier(tier))
     }
     if (tiers.length === 0) return null
 

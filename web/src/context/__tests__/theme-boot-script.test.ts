@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vite-plus/test'
 
 import { THEME_STORAGE_KEYS } from '@/lib/theme-storage'
 

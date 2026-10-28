@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { afterEach, expect, test, vi } from 'vitest'
+import { afterEach, expect, test, vi } from 'vite-plus/test'
 
 import { FloatingWindow } from '@/components/floating-window'
 

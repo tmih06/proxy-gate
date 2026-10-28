@@ -93,9 +93,7 @@ export function AccountBindings({ profile, onUpdate }: AccountBindingsProps) {
   const bindingsLocked =
     security.pending || Boolean(preparedBinding) || dialogs.hasAnyOpen
 
-  const customProviders = status?.custom_oauth_providers as
-    | CustomOAuthProviderInfo[]
-    | undefined
+  const customProviders = status?.custom_oauth_providers
   const customBindingsByProviderId = useMemo(
     () => indexCustomOAuthBindings(customBindings),
     [customBindings]

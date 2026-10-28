@@ -102,7 +102,7 @@ function UsageLogsContent() {
     (section: string) => {
       void navigate({
         to: '/usage-logs/$section',
-        params: { section: section as UsageLogsSectionId },
+        params: { section },
       })
     },
     [navigate]
@@ -111,7 +111,7 @@ function UsageLogsContent() {
   const handleViewScopeChange = useCallback(
     (scope: string) => {
       if (scope === 'all' || scope === 'self') {
-        setViewScope(scope as LogsViewScope)
+        setViewScope(scope)
       }
     },
     [setViewScope]

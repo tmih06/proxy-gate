@@ -930,7 +930,7 @@ export function CodexUsageDialog({
     if (!raw || typeof raw !== 'object') {
       return null
     }
-    return raw as CodexUsagePayload
+    return raw
   }, [response?.data])
 
   const resetCreditsPayload: CodexResetCreditsPayload | null = useMemo(() => {
@@ -938,7 +938,7 @@ export function CodexUsageDialog({
     if (!raw || typeof raw !== 'object') {
       return null
     }
-    return raw as CodexResetCreditsPayload
+    return raw
   }, [resetCreditsResponse?.data])
 
   const rateLimit = payload?.rate_limit

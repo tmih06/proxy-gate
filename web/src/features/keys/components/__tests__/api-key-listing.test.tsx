@@ -41,7 +41,7 @@ import userEvent from '@testing-library/user-event'
 import { createInstance } from 'i18next'
 import { I18nextProvider } from 'react-i18next'
 import { Toaster, toast } from 'sonner'
-import { afterEach, beforeEach, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, expect, it, vi } from 'vite-plus/test'
 
 import zh from '@/i18n/locales/zh.json'
 import { api } from '@/lib/api'

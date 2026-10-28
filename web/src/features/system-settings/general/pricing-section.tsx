@@ -169,7 +169,7 @@ export function PricingSection({ defaultValues }: PricingSectionProps) {
                       <Input
                         type='number'
                         step='0.01'
-                        value={field.value as number}
+                        value={field.value}
                         disabled
                         name={field.name}
                         onBlur={field.onBlur}

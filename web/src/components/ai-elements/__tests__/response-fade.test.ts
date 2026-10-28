@@ -16,7 +16,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  test,
+  vi,
+} from 'vite-plus/test'
 
 import {
   beginRun,
@@ -159,9 +166,7 @@ describe('classifyValue', () => {
     classifyValue(first, 'done ')
     endRun(first)
 
-    vi.spyOn(performance, 'now').mockReturnValue(
-      1000 + FADE_DURATION_MS + 1
-    )
+    vi.spyOn(performance, 'now').mockReturnValue(1000 + FADE_DURATION_MS + 1)
     const second = beginRun(state)
     const segments = classifyValue(second, 'done next')
     endRun(second)

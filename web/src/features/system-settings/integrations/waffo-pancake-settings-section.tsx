@@ -158,7 +158,7 @@ export function WaffoPancakeSettingsSection({
           typeof body.data === 'object' &&
           body.data
         ) {
-          stores = (body.data as { stores: CatalogStore[] }).stores ?? []
+          stores = (body.data).stores ?? []
         } else {
           const reason =
             getPaymentErrorTranslation(body) ??
@@ -300,7 +300,7 @@ export function WaffoPancakeSettingsSection({
         typeof body.data === 'object' &&
         body.data
       ) {
-        const created = body.data as PairResult
+        const created = body.data
         // Refetch from GraphQL rather than trusting the response body so the
         // dropdowns reflect authoritative state, then anchor on minted IDs.
         setPhase('verifying')

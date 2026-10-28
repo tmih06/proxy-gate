@@ -256,7 +256,7 @@ function PresetConfig() {
       />
       <Radio
         value={customization.preset}
-        onValueChange={(v) => setPreset(v as ThemePreset)}
+        onValueChange={(v) => setPreset(v)}
         className='grid w-full grid-cols-4 gap-3'
         aria-label={t('Select color preset')}
       >
@@ -335,7 +335,7 @@ function FontConfig() {
       />
       <Radio
         value={customization.font}
-        onValueChange={(v) => setFont(v as ThemeFont)}
+        onValueChange={(v) => setFont(v)}
         className='grid w-full grid-cols-3 gap-4'
         aria-label={t('Select body font')}
       >
@@ -405,7 +405,7 @@ function RadiusConfig() {
       />
       <Radio
         value={customization.radius}
-        onValueChange={(v) => setRadius(v as ThemeRadius)}
+        onValueChange={(v) => setRadius(v)}
         className='grid w-full grid-cols-6 gap-2'
         aria-label={t('Select border radius')}
       >
@@ -494,7 +494,7 @@ function ScaleConfig() {
       />
       <Radio
         value={customization.scale}
-        onValueChange={(v) => setScale(v as ThemeScale)}
+        onValueChange={(v) => setScale(v)}
         className='grid w-full grid-cols-4 gap-3'
         aria-label={t('Select interface density')}
       >
@@ -632,7 +632,7 @@ function ContentLayoutConfig() {
       />
       <Radio
         value={customization.contentLayout}
-        onValueChange={(v) => setContentLayout(v as ContentLayout)}
+        onValueChange={(v) => setContentLayout(v)}
         className='grid w-full grid-cols-2 gap-4'
         aria-label={t('Select content width')}
       >

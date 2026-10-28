@@ -72,9 +72,7 @@ function OAuthCallback() {
     request: Promise<{ data: LoginResponse }>
   } | null>(null)
   const completedLogin = useRef<string | null>(null)
-  const { provider } = useParams({ from: '/oauth/$provider' }) as {
-    provider: string
-  }
+  const { provider } = useParams({ from: '/oauth/$provider' })
   const search = useSearch({ from: '/oauth/$provider' }) as {
     code?: string
     state?: string

@@ -34,7 +34,7 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
-import { afterEach, beforeEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vite-plus/test'
 
 import { api } from '@/lib/api'
 import { createAppQueryClient } from '@/lib/query-client'
@@ -222,7 +222,7 @@ function useWideScreen() {
     width: 900,
     height: 900,
     toJSON: () => ({}),
-  } as DOMRect)
+  })
 }
 
 test('changing built-in providers updates server-provided URL placeholders without replacing the draft address', async () => {
@@ -2837,7 +2837,7 @@ test('header passthrough quick option confirms before writing the wildcard rule 
   await user.click(screen.getByRole('tab', { name: /Request & Response/ }))
   const editor = screen.getByLabelText(
     'Request Header Override'
-  ) as HTMLTextAreaElement
+  )
   expect(JSON.parse(editor.value)).toEqual({ '*': true })
 
   await user.click(screen.getByRole('tab', { name: /Connection & Models/ }))
@@ -2868,7 +2868,7 @@ test('the header override passthrough template button confirms before filling th
   await user.click(screen.getByRole('tab', { name: /Request & Response/ }))
   const editor = screen.getByLabelText(
     'Request Header Override'
-  ) as HTMLTextAreaElement
+  )
   expect(editor.value).toBe('')
 
   await user.click(screen.getByRole('button', { name: 'Passthrough Template' }))

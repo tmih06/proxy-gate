@@ -360,7 +360,7 @@ export function AnnouncementsSection({
                 <Checkbox
                   checked={selectedIds.includes(announcement.id)}
                   onCheckedChange={(checked) =>
-                    toggleSelectOne(announcement.id, checked as boolean)
+                    toggleSelectOne(announcement.id, checked)
                   }
                 />
               ),

@@ -24,7 +24,7 @@ import {
 } from '@tanstack/react-table'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { expect, test } from 'vitest'
+import { expect, test } from 'vite-plus/test'
 
 import { channelSchema, type Channel } from '../../types'
 import { useChannelsColumns } from '../channels-columns'

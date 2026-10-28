@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { act, render, screen } from '@testing-library/react'
 import i18next from 'i18next'
-import { afterEach, expect, test } from 'vitest'
+import { afterEach, expect, test } from 'vite-plus/test'
 
 import type { LoginSession } from '@/stores/auth-store'
 

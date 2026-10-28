@@ -89,7 +89,7 @@ export function useFilters(models: PricingModel[]) {
           delete next[key]
         }
       }
-      return next as FilterState
+      return next
     })
   }, [])
 

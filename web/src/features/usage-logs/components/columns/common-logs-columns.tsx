@@ -362,7 +362,7 @@ export function useCommonLogsColumns(
         header: t('Time'),
         cell: ({ row }) => {
           const log = row.original
-          const timestamp = row.getValue('created_at') as number
+          const timestamp = row.getValue('created_at')
           const config = getLogTypeConfig(log.type)
 
           return (
@@ -705,7 +705,7 @@ export function useCommonLogsColumns(
           const log = row.original
           if (!isTimingLogType(log.type)) return null
 
-          const useTime = row.getValue('use_time') as number
+          const useTime = row.getValue('use_time')
           const other = parseLogOther(log.other)
           const tokensPerSecond =
             useTime > 0 && log.completion_tokens > 0
@@ -778,7 +778,7 @@ export function useCommonLogsColumns(
           const log = row.original
           if (!isDisplayableLogType(log.type)) return null
 
-          const quota = row.getValue('quota') as number
+          const quota = row.getValue('quota')
           const other = parseLogOther(log.other)
           return (
             <LogCostDisplay
@@ -797,7 +797,7 @@ export function useCommonLogsColumns(
           const log = row.original
           if (!isTimingLogType(log.type)) return null
 
-          const useTime = row.getValue('use_time') as number
+          const useTime = row.getValue('use_time')
           const other = parseLogOther(log.other)
 
           return (

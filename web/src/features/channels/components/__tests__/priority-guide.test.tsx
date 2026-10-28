@@ -27,7 +27,7 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { StrictMode, useState } from 'react'
-import { afterEach, beforeEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vite-plus/test'
 
 import { CHANNEL_PRIORITY_GUIDE_KEYS } from '../../constants'
 import { ChannelPriorityModeToggle } from '../channel-priority-controls'

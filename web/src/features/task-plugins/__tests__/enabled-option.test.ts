@@ -16,12 +16,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { beforeEach, describe, expect, test, vi } from 'vitest'
+import { beforeEach, describe, expect, test, vi } from 'vite-plus/test'
 
-import {
-  getTaskPluginEnabledOption,
-  setTaskPluginEnabledOption,
-} from '../api'
+import { getTaskPluginEnabledOption, setTaskPluginEnabledOption } from '../api'
 
 const { get, put } = vi.hoisted(() => ({
   get: vi.fn(),

@@ -97,7 +97,7 @@ function normalizeStringList(text: string): string[] {
 }
 
 function normalizeKeySource(src: Partial<KeySource>): KeySource {
-  const type = (src?.type || 'gjson') as KeySource['type']
+  const type = (src?.type || 'gjson')
   if (type === 'gjson') return { ...src, type, key: '', path: src?.path || '' }
   return { ...src, type, key: src?.key || '', path: '' }
 }
@@ -379,7 +379,7 @@ export function RuleEditorDialog(props: Props) {
                     next[idx] = {
                       ...normalizeKeySource({
                         ...src,
-                        type: v as KeySource['type'],
+                        type: v,
                       }),
                       rowId: src.rowId,
                     }
