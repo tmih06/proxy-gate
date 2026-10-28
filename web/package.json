@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vp dev",
     "build": "tsc -b && vp build",
-    "build:check": "vp check && vp build",
+    "build:check": "bun run check && vp build",
     "typecheck": "tsc -b",
     "lint": "vp lint",
     "lint:fix": "vp lint --fix",
@@ -22,7 +22,7 @@
     "copyright": "node scripts/add-copyright.mjs",
     "i18n:sync": "node scripts/sync-i18n.mjs",
     "knip": "knip",
-    "check": "vp check"
+    "check": "vp check && tsc -b"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -125,6 +125,13 @@
     "qs": "6.15.2",
     "uuid": "14.0.0",
     "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "bun",
+      "version": "1.4.4",
+      "onFail": "download"
+    }
   },
   "packageManager": "bun@1.4.4"
 }

@@ -46,8 +46,34 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       target: 'es2020',
+      chunkSizeWarningLimit: 7000,
       // Emit a consolidated license report for bundled dependencies.
       license: true,
+      // Keep the large, stable vendor groups out of the application entry.
+      rolldownOptions: {
+        output: {
+          codeSplitting: {
+            groups: [
+              {
+                name: 'vendor-react',
+                test: /node_modules[\\/](react|react-dom)[\\/]/,
+              },
+              {
+                name: 'vendor-tanstack',
+                test: /node_modules[\\/]@tanstack[\\/]/,
+              },
+              {
+                name: 'vendor-ui-primitives',
+                test: /node_modules[\\/](@base-ui|@radix-ui)[\\/]/,
+              },
+              {
+                name: 'vendor-charts',
+                test: /node_modules[\\/](@visactor|recharts)[\\/]/,
+              },
+            ],
+          },
+        },
+      },
     },
     test: {
       environment: 'jsdom',
@@ -92,14 +118,6 @@ export default defineConfig(({ mode }) => {
         '.eslintrc.cjs',
         '**/routeTree.gen.ts',
         'src/routeTree.gen.ts',
-      ],
-      overrides: [
-        {
-          files: ['../plugins/**/*.{js,mjs,cjs}'],
-          semi: true,
-          singleQuote: false,
-          printWidth: 160,
-        },
       ],
     },
     lint: {
@@ -327,33 +345,6 @@ export default defineConfig(({ mode }) => {
           rules: {
             'no-console': 'off',
             'prefer-node-protocol': 'off',
-          },
-        },
-        {
-          files: ['../plugins/**/*.{js,mjs,cjs}'],
-          globals: {
-            console: 'readonly',
-            utils: 'readonly',
-          },
-          rules: {
-            'no-console': 'off',
-            'no-underscore-dangle': [
-              'warn',
-              {
-                allow: ['__fileRef'],
-              },
-            ],
-            'no-undef': 'error',
-            'no-unused-vars': [
-              'error',
-              {
-                argsIgnorePattern: '^_',
-                caughtErrorsIgnorePattern: '^e$',
-              },
-            ],
-            'no-var': 'error',
-            'prefer-node-protocol': 'off',
-            'project/intl-locale': 'off',
           },
         },
       ],

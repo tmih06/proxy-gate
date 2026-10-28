@@ -234,7 +234,7 @@ docker compose logs -f new-api
 
 ## 開發與擴充
 
-後端使用 Go 和 Gin；控制台使用 React 19、TypeScript、Rsbuild、TanStack 與 Tailwind CSS 4。前端相依套件和指令碼使用 Bun；Go 語言基線見 [go.mod](./go.mod)，容器建置工具鏈見 [Dockerfile](./Dockerfile)。
+後端使用 Go 和 Gin；控制台使用 React 19、TypeScript、Vite+、TanStack 與 Tailwind CSS 4。前端相依套件和指令碼使用 Bun；Go 語言基線見 [go.mod](./go.mod)，容器建置工具鏈見 [Dockerfile](./Dockerfile)。
 
 後端會嵌入 `web/dist`，首次啟動前先建置前端：
 
@@ -266,7 +266,7 @@ bun run dev -- --port 5173
 | `web/` | Web 控制台，參閱[前端開發約定](./web/AGENTS.md) |
 | [electron/](./electron/README.md) | 桌面封裝與打包 |
 
-貢獻前請閱讀 [AGENTS.md](./AGENTS.md)。依改動範圍執行檢查：Go 模組使用 `make test`；前端在 `web/` 下執行 `bun check -b`、`bun run lint`、`bun run test` 和 `bun run build`。修改 RelayKit 後還必須在 `relaykit/` 下執行 `GOWORK=off go build ./...`。
+貢獻前請閱讀 [AGENTS.md](./AGENTS.md)。依改動範圍執行檢查：Go 模組使用 `make test`；前端在 `web/` 下執行 `bun run check`、`bun run typecheck`、`bun run test` 和 `bun run build`。修改 RelayKit 後還必須在 `relaykit/` 下執行 `GOWORK=off go build ./...`。
 
 <a id="documentation"></a>
 

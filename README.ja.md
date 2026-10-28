@@ -235,7 +235,7 @@ docker compose logs -f new-api
 
 ## 開発と拡張
 
-バックエンドは Go と Gin、管理画面は React 19、TypeScript、Rsbuild、TanStack、Tailwind CSS 4 を使用します。フロントエンドの依存関係とスクリプトには Bun を使います。Go 言語の基準バージョンは [go.mod](./go.mod)、コンテナのビルドツールチェーンは [Dockerfile](./Dockerfile) を参照してください。
+バックエンドは Go と Gin、管理画面は React 19、TypeScript、Vite+、TanStack、Tailwind CSS 4 を使用します。フロントエンドの依存関係とスクリプトには Bun を使います。Go 言語の基準バージョンは [go.mod](./go.mod)、コンテナのビルドツールチェーンは [Dockerfile](./Dockerfile) を参照してください。
 
 バックエンドは `web/dist` を埋め込むため、先にフロントエンドをビルドします。
 
@@ -267,7 +267,7 @@ bun run dev -- --port 5173
 | `web/` | Web 管理画面。[フロントエンドの規約](./web/AGENTS.md)を参照 |
 | [electron/](./electron/README.md) | デスクトップアプリのラッパーとパッケージング |
 
-貢献前に [AGENTS.md](./AGENTS.md) を確認してください。変更に応じて、Go モジュールは `make test`、フロントエンドは `web/` で `bun check -b`、`bun run lint`、`bun run test`、`bun run build` を実行します。RelayKit を変更した場合は、`relaykit/` で `GOWORK=off go build ./...` も実行してください。
+貢献前に [AGENTS.md](./AGENTS.md) を確認してください。変更に応じて、Go モジュールは `make test`、フロントエンドは `web/` で `bun run check`、`bun run typecheck`、`bun run test`、`bun run build` を実行します。RelayKit を変更した場合は、`relaykit/` で `GOWORK=off go build ./...` も実行してください。
 
 <a id="documentation"></a>
 

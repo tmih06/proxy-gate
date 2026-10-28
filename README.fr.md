@@ -235,7 +235,7 @@ Choisissez une version précise d'image dans les [versions publiées](https://gi
 
 ## Développement et extensions
 
-Le backend utilise Go et Gin ; la console utilise React 19, TypeScript, Rsbuild, TanStack et Tailwind CSS 4. Utilisez Bun pour le frontend. Consultez [go.mod](./go.mod) pour la version de référence du langage Go et [Dockerfile](./Dockerfile) pour la chaîne de compilation du conteneur.
+Le backend utilise Go et Gin ; la console utilise React 19, TypeScript, Vite+, TanStack et Tailwind CSS 4. Utilisez Bun pour le frontend. Consultez [go.mod](./go.mod) pour la version de référence du langage Go et [Dockerfile](./Dockerfile) pour la chaîne de compilation du conteneur.
 
 Compilez le frontend avant de démarrer le backend, qui intègre `web/dist` :
 
@@ -267,7 +267,7 @@ Ouvrez [http://localhost:5173](http://localhost:5173) ; les requêtes API sont r
 | `web/` | Console web ; voir les [conventions frontend](./web/AGENTS.md) |
 | [electron/](./electron/README.md) | Application de bureau et packaging |
 
-Lisez [AGENTS.md](./AGENTS.md) avant de contribuer. Exécutez les vérifications adaptées : `make test` pour les modules Go ; `bun check -b`, `bun run lint`, `bun run test` et `bun run build` dans `web/` pour le frontend. Une modification de RelayKit nécessite aussi `GOWORK=off go build ./...` depuis `relaykit/`.
+Lisez [AGENTS.md](./AGENTS.md) avant de contribuer. Exécutez les vérifications adaptées : `make test` pour les modules Go ; `bun run check`, `bun run typecheck`, `bun run test` et `bun run build` dans `web/` pour le frontend. Une modification de RelayKit nécessite aussi `GOWORK=off go build ./...` depuis `relaykit/`.
 
 <a id="documentation"></a>
 

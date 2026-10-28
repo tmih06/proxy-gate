@@ -9,7 +9,7 @@ let serverProcess;
 let tray = null;
 let serverErrorLogs = [];
 const PORT = 3000;
-const DEV_FRONTEND_PORT = 5173; // Rsbuild dev server port
+const DEV_FRONTEND_PORT = 5173; // Vite+ dev server port
 
 // 保存日志到文件并打开
 function saveAndOpenErrorLog() {
