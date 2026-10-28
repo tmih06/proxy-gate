@@ -203,7 +203,7 @@
 
 ### 3.16 构建与部署
 
-- 使用 Vite+，配置见 `vite.config.ts`；脚本以 `package.json` 为准（如 `bun run dev`、`bun run build`、`bun run check`、`bun run typecheck`、`bun run test`、`bun run format`），包管理见 [3.15 依赖管理](#315-依赖管理)。
+- 使用 Vite+，配置见 `vite.config.ts`；脚本以 `package.json` 为准（如 `bun run dev`、`bun run build`、`bun run check`、`bun run typecheck`、`bun run test`、`bun run doctor`、`bun run format`），包管理见 [3.15 依赖管理](#315-依赖管理)。
 - 代码分割与懒加载策略见 [3.4 性能](#34-性能)；资源使用合适格式与压缩，环境变量用 `.env` 且以 `VITE_` 前缀，不在代码中硬编码。
 - **发布前**：执行 typecheck、lint、format 检查，完成生产构建并检查产物体积与环境变量配置。
 

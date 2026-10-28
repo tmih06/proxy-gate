@@ -164,6 +164,7 @@ Transitive dependencies should be audited before a final external release.
 | web      | development | npm       | `knip`                                                  | `6.27.0`                             | ISC                     |
 | web      | development | npm       | `oxfmt`                                                 | `0.72.0`                             | MIT                     |
 | web      | development | npm       | `oxlint`                                                | `1.89.0`                             | MIT                     |
+| web      | development | npm       | `react-doctor`                                          | `0.9.18`                             | MIT                     |
 | web      | development | npm       | `shadcn`                                                | `4.13.1`                             | MIT                     |
 | electron | development | npm       | `cross-env`                                             | `7.0.3`                              | MIT                     |
 | electron | development | npm       | `electron`                                              | `41.10.6`                            | MIT                     |
