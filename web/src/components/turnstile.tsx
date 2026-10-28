@@ -70,6 +70,9 @@ export function Turnstile({
     s.defer = true
     s.addEventListener('load', render)
     document.head.appendChild(s)
+    return () => {
+      s.removeEventListener('load', render)
+    }
   }, [siteKey, onVerify, onExpire])
 
   return <div ref={ref} className={className} />

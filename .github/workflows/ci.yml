@@ -102,5 +102,8 @@ jobs:
       - name: Test
         run: bun run test
 
+      - name: React Doctor
+        run: bun run doctor:ci
+
       - name: Build
         run: bun run build

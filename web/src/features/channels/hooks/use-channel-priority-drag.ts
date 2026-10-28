@@ -140,7 +140,9 @@ export function useChannelPriorityDrag(options: DragOptions) {
   const landing = useRef<AnimationPlaybackControls | null>(null)
   const animations = useRef(new Map<HTMLElement, AnimationPlaybackControls>())
   const latest = useRef(options)
-  latest.current = options
+  useEffect(() => {
+    latest.current = options
+  }, [options])
   const reduced = useReducedMotion()
   const transition = useMemo(
     () =>

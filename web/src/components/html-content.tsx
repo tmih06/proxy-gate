@@ -158,6 +158,7 @@ function IsolatedHtmlContent(props: {
 
     const wrapper = document.createElement('div')
     syncDarkClass(wrapper)
+    // react-doctor-disable-next-line react-doctor/dangerous-html-sink -- HtmlContent sanitizes this value before rendering
     wrapper.innerHTML = props.html
 
     const contentTemplate = document.createElement('template')

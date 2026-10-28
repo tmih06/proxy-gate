@@ -140,6 +140,7 @@ export type ModelPricingEditorPanelHandle = {
   commitDraft: () => Promise<ModelRatioData | null>
 }
 
+// react-doctor-disable-next-line react-doctor/no-secrets-in-client-code -- public default billing expression, not a secret
 const DEFAULT_TOKEN_BILLING_EXPR = 'tier("base", p * 0 + c * 0)'
 
 export const ModelPricingSheet = forwardRef<

@@ -110,9 +110,15 @@ export function createStreamRequestController(
       closeActiveSource(nextSource)
     }
 
+    const expectedOrigin = new URL(
+      API_ENDPOINTS.CHAT_COMPLETIONS,
+      window.location.origin
+    ).origin
     nextSource.addEventListener('message', (event) => {
+      const message = event as MessageEvent<string>
+      if (message.origin && message.origin !== expectedOrigin) return
       if (!isCurrent() || completed) return
-      const data = event.data ?? ''
+      const data = message.data ?? ''
       if (isStreamDoneMessage(data)) {
         completed = true
         closeActiveSource(nextSource)

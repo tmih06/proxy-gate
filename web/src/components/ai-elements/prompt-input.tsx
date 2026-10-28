@@ -1120,67 +1120,75 @@ export const PromptInputSpeechButton = ({
   const [recognition, setRecognition] = useState<SpeechRecognition | null>(null)
   const recognitionRef = useRef<SpeechRecognition | null>(null)
 
+  // react-doctor-disable-next-line react-doctor/effect-needs-cleanup -- the error listener is removed in the effect cleanup below
   useEffect(() => {
     if (
-      typeof window !== 'undefined' &&
-      ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)
+      typeof window === 'undefined' ||
+      !('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)
     ) {
-      const SpeechRecognition =
-        window.SpeechRecognition || window.webkitSpeechRecognition
-      const speechRecognition = new SpeechRecognition()
-
-      speechRecognition.continuous = true
-      speechRecognition.interimResults = true
-      speechRecognition.lang = 'en-US'
-
-      speechRecognition.onstart = () => {
-        setIsListening(true)
-      }
-
-      speechRecognition.onend = () => {
-        setIsListening(false)
-      }
-
-      speechRecognition.onresult = (event) => {
-        let finalTranscript = ''
-
-        for (let i = 0; i < event.results.length; i++) {
-          const result = event.results[i]
-          if (result.isFinal) {
-            finalTranscript += result[0]?.transcript ?? ''
-          }
-        }
-
-        if (finalTranscript && textareaRef?.current) {
-          const textarea = textareaRef.current
-          const currentValue = textarea.value
-          const newValue =
-            currentValue + (currentValue ? ' ' : '') + finalTranscript
-
-          textarea.value = newValue
-          textarea.dispatchEvent(new Event('input', { bubbles: true }))
-          onTranscriptionChange?.(newValue)
-        }
-      }
-
-      speechRecognition.addEventListener('error', (event) => {
-        // eslint-disable-next-line no-console
-        console.error(
-          'Speech recognition error:',
-          (event as Event & { error?: string }).error
-        )
-        setIsListening(false)
-      })
-
-      recognitionRef.current = speechRecognition
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setRecognition(speechRecognition)
+      return
     }
 
-    return () => {
-      if (recognitionRef.current) {
-        recognitionRef.current.stop()
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition
+    const speechRecognition = new SpeechRecognition()
+
+    speechRecognition.continuous = true
+    speechRecognition.interimResults = true
+    speechRecognition.lang = 'en-US'
+
+    speechRecognition.onstart = () => {
+      setIsListening(true)
+    }
+
+    speechRecognition.onend = () => {
+      setIsListening(false)
+    }
+
+    speechRecognition.onresult = (event) => {
+      let finalTranscript = ''
+
+      for (let i = 0; i < event.results.length; i++) {
+        const result = event.results[i]
+        if (result.isFinal) {
+          finalTranscript += result[0]?.transcript ?? ''
+        }
       }
+
+      if (finalTranscript && textareaRef?.current) {
+        const textarea = textareaRef.current
+        const currentValue = textarea.value
+        const newValue =
+          currentValue + (currentValue ? ' ' : '') + finalTranscript
+
+        textarea.value = newValue
+        textarea.dispatchEvent(new Event('input', { bubbles: true }))
+        onTranscriptionChange?.(newValue)
+      }
+    }
+
+    const handleError = (event: Event) => {
+      // eslint-disable-next-line no-console
+      console.error(
+        'Speech recognition error:',
+        (event as Event & { error?: string }).error
+      )
+      setIsListening(false)
+    }
+    speechRecognition.addEventListener('error', handleError)
+
+    recognitionRef.current = speechRecognition
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setRecognition(speechRecognition)
+
+    return () => {
+      const activeRecognition = recognitionRef.current
+      if (!activeRecognition) return
+      activeRecognition.removeEventListener('error', handleError)
+      activeRecognition.onstart = null
+      activeRecognition.onend = null
+      activeRecognition.onresult = null
+      activeRecognition.stop()
     }
   }, [textareaRef, onTranscriptionChange])
 

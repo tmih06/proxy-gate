@@ -1298,12 +1298,11 @@ export function ParamOverrideEditorDialog(
     setSelectedOperationId(created.id)
   }, [])
 
-  const duplicateOperation = useCallback((operationId: string) => {
-    let insertedId = ''
-    setOperations((prev) => {
-      const idx = prev.findIndex((o) => o.id === operationId)
-      if (idx < 0) return prev
-      const source = prev[idx]
+  const duplicateOperation = useCallback(
+    (operationId: string) => {
+      const idx = operations.findIndex((o) => o.id === operationId)
+      if (idx < 0) return
+      const source = operations[idx]
       const cloned = normalizeOperation({
         description: source.description,
         path: source.path,
@@ -1330,13 +1329,17 @@ export function ParamOverrideEditorDialog(
           })),
         }
       }
-      insertedId = cloned.id
-      const next = [...prev]
-      next.splice(idx + 1, 0, cloned)
-      return next
-    })
-    if (insertedId) setSelectedOperationId(insertedId)
-  }, [])
+      setOperations((prev) => {
+        const currentIdx = prev.findIndex((o) => o.id === operationId)
+        if (currentIdx < 0) return prev
+        const next = [...prev]
+        next.splice(currentIdx + 1, 0, cloned)
+        return next
+      })
+      setSelectedOperationId(cloned.id)
+    },
+    [operations]
+  )
 
   const removeOperation = useCallback((operationId: string) => {
     setOperations((prev) => {

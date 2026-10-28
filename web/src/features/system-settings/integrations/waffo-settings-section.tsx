@@ -129,12 +129,16 @@ export function WaffoSettingsSection({
     }
 
     const reader = new FileReader()
-    reader.addEventListener('load', () => {
-      setMethodForm((previous) => ({
-        ...previous,
-        icon: typeof reader.result === 'string' ? reader.result : '',
-      }))
-    })
+    reader.addEventListener(
+      'load',
+      () => {
+        setMethodForm((previous) => ({
+          ...previous,
+          icon: typeof reader.result === 'string' ? reader.result : '',
+        }))
+      },
+      { once: true }
+    )
     reader.readAsDataURL(file)
     event.target.value = ''
   }

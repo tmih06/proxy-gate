@@ -174,21 +174,25 @@ export function HeroTerminalDemo(props: HeroTerminalDemoProps) {
   const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined)
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 
+  // react-doctor-disable-next-line react-doctor/effect-needs-cleanup -- both the interval and its timeout are cleared in the effect cleanup
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
     if (mq.matches) return
 
-    intervalRef.current = setInterval(() => {
+    let timeout: ReturnType<typeof setTimeout> | undefined
+    const interval = setInterval(() => {
       setTransitioning(true)
-      timeoutRef.current = setTimeout(() => {
+      timeout = setTimeout(() => {
         setActiveIndex((prev) => (prev + 1) % API_DEMOS.length)
         setTransitioning(false)
       }, TRANSITION_MS)
+      timeoutRef.current = timeout
     }, CYCLE_INTERVAL)
+    intervalRef.current = interval
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      clearInterval(interval)
+      if (timeout) clearTimeout(timeout)
     }
   }, [])
 

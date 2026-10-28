@@ -373,17 +373,16 @@ const ModelRatioVisualEditorComponent = forwardRef<
 
   const handleGlobalFilterChange = useCallback<OnChangeFn<string>>(
     (updater) => {
-      setGlobalFilter((previous) => {
-        const next = typeof updater === 'function' ? updater(previous) : updater
-        if (next !== previous) {
-          setEditData(null)
-          setEditorOpen(false)
-          setSheetOpen(false)
-        }
-        return next
-      })
+      const next =
+        typeof updater === 'function' ? updater(globalFilter) : updater
+      if (next !== globalFilter) {
+        setEditData(null)
+        setEditorOpen(false)
+        setSheetOpen(false)
+      }
+      setGlobalFilter(next)
     },
-    []
+    [globalFilter]
   )
 
   const handleDelete = useCallback(

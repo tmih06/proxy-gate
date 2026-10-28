@@ -96,9 +96,11 @@ export function JsonCodeEditor({
     []
   )
 
-  latestValueRef.current = value
-  latestOnChangeRef.current = onChange
-  latestOnBlurRef.current = onBlur
+  useEffect(() => {
+    latestValueRef.current = value
+    latestOnChangeRef.current = onChange
+    latestOnBlurRef.current = onBlur
+  }, [value, onChange, onBlur])
 
   useEffect(() => {
     const mountNode = mountRef.current

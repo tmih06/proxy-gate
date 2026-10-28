@@ -47,16 +47,19 @@ export function useCountdown(options: UseCountdownOptions = {}) {
       setSecondsLeft(total)
       setIsActive(true)
       clearTimer()
-      timerRef.current = window.setInterval(() => {
-        setSecondsLeft((s) => {
-          if (s <= 1) {
-            clearTimer()
-            setIsActive(false)
-            return initialSeconds
-          }
-          return s - 1
-        })
-      }, 1000)
+      let remaining = total
+      const tick = () => {
+        remaining -= 1
+        if (remaining <= 0) {
+          timerRef.current = null
+          setIsActive(false)
+          setSecondsLeft(initialSeconds)
+          return
+        }
+        setSecondsLeft(remaining)
+        timerRef.current = window.setTimeout(tick, 1000)
+      }
+      timerRef.current = window.setTimeout(tick, 1000)
     },
     [clearTimer, initialSeconds]
   )
