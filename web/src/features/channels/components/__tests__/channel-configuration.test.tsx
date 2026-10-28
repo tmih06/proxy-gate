@@ -2837,7 +2837,7 @@ test('header passthrough quick option confirms before writing the wildcard rule 
   await user.click(screen.getByRole('tab', { name: /Request & Response/ }))
   const editor = screen.getByLabelText(
     'Request Header Override'
-  )
+  ) as HTMLTextAreaElement
   expect(JSON.parse(editor.value)).toEqual({ '*': true })
 
   await user.click(screen.getByRole('tab', { name: /Connection & Models/ }))
@@ -2868,7 +2868,7 @@ test('the header override passthrough template button confirms before filling th
   await user.click(screen.getByRole('tab', { name: /Request & Response/ }))
   const editor = screen.getByLabelText(
     'Request Header Override'
-  )
+  ) as HTMLTextAreaElement
   expect(editor.value).toBe('')
 
   await user.click(screen.getByRole('button', { name: 'Passthrough Template' }))

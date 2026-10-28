@@ -33,7 +33,6 @@ import { removeTrailingSlash } from './utils'
 import {
   type CatalogStore,
   type PairOrphanError,
-  type PairResult,
   createWaffoPancakePair,
   listWaffoPancakeCatalog,
 } from './waffo-pancake-api'

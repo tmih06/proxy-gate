@@ -28,7 +28,6 @@ import { useSidebarConfig } from '@/hooks/use-sidebar-config'
 
 import { UserInfoDialog } from './components/dialogs/user-info-dialog'
 import {
-  type LogsViewScope,
   UsageLogsProvider,
   useLogsViewScope,
   useUsageLogsContext,

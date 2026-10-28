@@ -53,11 +53,9 @@ import { type Collapsible, useLayout } from '@/context/layout-provider'
 import { useThemeCustomization } from '@/context/theme-customization-provider'
 import { useTheme } from '@/context/theme-provider'
 import {
-  type ContentLayout,
   resolveThemeFont,
   THEME_PRESETS,
   type ThemeFont,
-  type ThemePreset,
   type ThemeRadius,
   type ThemeScale,
 } from '@/lib/theme-customization'

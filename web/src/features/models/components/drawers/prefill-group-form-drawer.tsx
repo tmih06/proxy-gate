@@ -77,7 +77,6 @@ import {
   DEFAULT_FORM_VALUES,
   PREFILL_GROUP_TYPE_META,
   PREFILL_GROUP_TYPES,
-  type PrefillGroupType,
   parseStringItems,
   serializeEndpointItems,
 } from '../prefill-group-shared'

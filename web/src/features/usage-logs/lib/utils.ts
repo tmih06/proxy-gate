@@ -36,8 +36,6 @@ import type {
   GetLogsParams,
   GetLogsResponse,
   FetchLogsConfig,
-  GetMidjourneyLogsParams,
-  GetTaskLogsParams,
 } from '../types'
 
 export { buildQueryParams } from './query-params'

@@ -265,7 +265,7 @@ it('confirms regeneration of supported expressions and preserves their prices an
     (
       screen.getByRole('textbox', {
         name: 'Billing expression',
-      })
+      }) as HTMLTextAreaElement
     ).value
   ).toContain(expression)
   expect(onChange).not.toHaveBeenCalled()
@@ -294,7 +294,7 @@ it('confirms regeneration of supported expressions and preserves their prices an
     (
       screen.getByRole('textbox', {
         name: 'Billing expression',
-      })
+      }) as HTMLTextAreaElement
     ).value
   ).toContain('header("x-priority")')
 })

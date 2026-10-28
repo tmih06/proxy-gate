@@ -1141,9 +1141,8 @@ export const PromptInputSpeechButton = ({
       speechRecognition.onresult = (event) => {
         let finalTranscript = ''
 
-        const results = [...event.results]
-
-        for (const result of results) {
+        for (let i = 0; i < event.results.length; i++) {
+          const result = event.results[i]
           if (result.isFinal) {
             finalTranscript += result[0]?.transcript ?? ''
           }

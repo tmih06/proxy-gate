@@ -50,7 +50,6 @@ import {
 import { checkIsActive } from '../lib/url-utils'
 import type {
   NavCollapsible,
-  NavChatPresets,
   NavLink,
   NavGroup as NavGroupProps,
 } from '../types'

@@ -87,7 +87,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       meta: { mobileBadge: true },
       cell: ({ row }) => {
         const redemption = row.original
-        const statusValue = row.getValue('status')
+        const statusValue = redemption.status
 
         // Check if expired
         if (isRedemptionExpired(redemption.expired_time, statusValue)) {
@@ -116,9 +116,9 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
           />
         )
       },
-      filterFn: (row, id, value) => {
+      filterFn: (row, _id, value) => {
         const redemption = row.original
-        const statusValue = row.getValue(id)
+        const statusValue = redemption.status
 
         // Check if expired status is being filtered
         if (value.includes(REDEMPTION_FILTER_EXPIRED)) {
@@ -158,7 +158,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       accessorKey: 'quota',
       header: t('Quota'),
       cell: ({ row }) => {
-        const quota = row.getValue('quota')
+        const quota = row.original.quota
         return (
           <StatusBadge
             label={formatQuota(quota)}
@@ -188,7 +188,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       header: t('Expires'),
       meta: { mobileHidden: true },
       cell: ({ row }) => {
-        const expiredTime = row.getValue('expired_time')
+        const expiredTime = row.original.expired_time
         if (expiredTime === 0) {
           return (
             <StatusBadge
@@ -215,7 +215,7 @@ export function useRedemptionsColumns(): ColumnDef<Redemption>[] {
       header: t('Redeemed By'),
       meta: { mobileHidden: true },
       cell: ({ row }) => {
-        const userId = row.getValue('used_user_id')
+        const userId = row.original.used_user_id
         const redemption = row.original
 
         if (userId === 0) {

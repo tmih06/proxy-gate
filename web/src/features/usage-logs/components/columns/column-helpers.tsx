@@ -87,7 +87,7 @@ export function createTimestampColumn<T>(config: {
       <DataTableColumnHeader column={column} title={title} />
     ),
     cell: ({ row }) => {
-      const timestamp = row.getValue(accessorKey)
+      const timestamp = row.getValue(accessorKey) as number | undefined
       if (!timestamp) {
         return <span className='text-muted-foreground/60 text-xs'>-</span>
       }
@@ -262,7 +262,7 @@ export function createProgressColumn<T>(config: {
       <DataTableColumnHeader column={column} title={headerLabel} />
     ),
     cell: ({ row }) => {
-      const progress = row.getValue(accessorKey)
+      const progress = row.getValue(accessorKey) as number | undefined
       if (!progress) {
         return <span className='text-muted-foreground/60 text-xs'>-</span>
       }

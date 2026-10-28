@@ -43,7 +43,6 @@ import {
   accessTokenFormSchema,
   defaultAccessTokenFormValues,
   resolveAccessTokenExpiry,
-  type AccessTokenExpiryPreset,
   type AccessTokenFormValues,
 } from '../../lib/access-token-schema'
 

@@ -20,7 +20,6 @@ import { z } from 'zod'
 
 import {
   type PermissionCatalog,
-  type AdminPermissionMatrix,
   normalizeAdminPermissions,
 } from '@/lib/admin-permissions'
 import { quotaUnitsToDollars } from '@/lib/format'

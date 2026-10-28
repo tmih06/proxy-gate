@@ -52,7 +52,6 @@ import {
   useSystemConfigStore,
 } from '@/stores/system-config-store'
 
-import type { User } from '../../types'
 import { useUsersColumns } from '../users-columns'
 import { UsersProvider } from '../users-provider'
 import { UsersTable } from '../users-table'
